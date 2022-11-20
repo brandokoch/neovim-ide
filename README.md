@@ -11,7 +11,7 @@ git checkout release-0.8
 make CMAKE_BUILD_TYPE=Release
 sudo make install
 
-git clone https://github.com/LunarVim/nvim-basic-ide.git ~/.config/nvim
+git clone https://github.com/bkoch4142/neovim-custom ~/.config/nvim
 
 apt install xsel # for X11
 apt install wl-clipboard # for wayland
