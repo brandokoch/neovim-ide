@@ -60,7 +60,6 @@ keymap("n", "<leader>p", ":FzfLua files<CR>", opts) -- Searches files while matc
 keymap("n", "<leader>f", ":FzfLua grep_project<CR>", opts) -- Searches text while matching text
 keymap("n", "<leader>v", ":FzfLua grep_visual<CR>", opts) -- Searches text while matching path and text
 
-
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
@@ -81,3 +80,5 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Custom bkoch
 keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader>q", ":q<CR>", opts)
+keymap("n", "<C-p>", ":MarkdownPreviewToggle<CR>", opts)

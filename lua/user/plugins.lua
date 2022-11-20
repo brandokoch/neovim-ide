@@ -102,13 +102,22 @@ return packer.startup(function(use)
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
   -- bkoch Custom
+  use { "kyazdani42/nvim-web-devicons"}
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
-    -- requires = { 'kyazdani42/nvim-web-devicons' }
+    requires = { 'kyazdani42/nvim-web-devicons' }
   }
+
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
-  -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  use {'ekickx/clipboard-image.nvim'}
+  
+  use {'tpope/vim-fugitive'}
 
 
   -- Automatically set up your configuration after cloning packer.nvim
