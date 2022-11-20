@@ -22,7 +22,7 @@ dashboard.section.buttons.val = {
   dashboard.button("q", " " .. " Quit", ":qa<CR>"),
 }
 local function footer()
-  return "chrisatmachine.com"
+  return "Brando Koch"
 end
 
 dashboard.section.footer.val = footer()

@@ -24,3 +24,13 @@ git clone https://github.com/ronniedroid/getnf.git
 cd getnf
 ./install.sh
 ```
+
+
+# Commands
+
+buffers:
+- shift q to exit
+
+:Gitsigns
+- blame_line  (see who edited line last)
+- preview_hunk (see changes on a line)
