@@ -42,4 +42,4 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters
 vim.opt.linebreak = true
 
 -- custom bkoch
-vim.opt.maxmempattern=2000000
+vim.opt.so = 999

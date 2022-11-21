@@ -99,7 +99,6 @@ return packer.startup(function(use)
   use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
 
   -- bkoch Custom
-  use { "kyazdani42/nvim-web-devicons"}
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' }
@@ -115,6 +114,7 @@ return packer.startup(function(use)
   use {'ekickx/clipboard-image.nvim'}
   
   use {'tpope/vim-fugitive'}
+  use {'sheerun/vim-polyglot'} -- coloring
 
 
   -- Automatically set up your configuration after cloning packer.nvim
