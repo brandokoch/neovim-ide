@@ -59,6 +59,8 @@ cd getnf
 5. :cfdo %s/foo/bar/g | :w 
 ```
 
+If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
+
 ## File Operations  
 | Command | Description |
 | --- | --- |
@@ -189,9 +191,6 @@ Copy paste yank outside of vim
 |`<SHIFT>s`| Construct Find and replace expression|
 |`set spell spelllang=en_us`| Spell check strings |
 |`set nospell`| Disable spell check|
-
-
-
 
 buffers:
 - shift q to exit
