@@ -46,6 +46,19 @@ cd getnf
 |s| substitute from where you are to the next command (noun)  |
 |S| substitute the entire current line|
 
+## Search and replace inside file
+|`%s/what/with_what/gc`| Globally replace and ask for confirmation|
+|`/search_term`| Search for search_term in file|
+
+## Search and replace in project:
+```
+1. leader f to open fzf
+2. search for pattern and when all entries match continue
+3. cntrl a (to select all entries)
+4. enter (to add them to quicklist)
+5. :cfdo %s/foo/bar/g | :w 
+```
+
 ## File Operations  
 | Command | Description |
 | --- | --- |
@@ -173,13 +186,9 @@ Copy paste yank outside of vim
 |`<CTRL>r`| Redo last action |
 |`<CTRL>+` | Zoom in|
 |`<CTRL>-` | Zoom out|
-|`%s/what/with_what/gc`| Globally replace and ask for confirmation|
 |`<SHIFT>s`| Construct Find and replace expression|
-|`/search_term`| Search for search_term in file|
 |`set spell spelllang=en_us`| Spell check strings |
 |`set nospell`| Disable spell check|
-
-```
 
 
 
