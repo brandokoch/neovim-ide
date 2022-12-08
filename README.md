@@ -59,6 +59,9 @@ cd getnf
 5. :cfdo %s/foo/bar/g | :w 
 ```
 
+## Macros
+https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
+
 If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 
 ## File Operations  
