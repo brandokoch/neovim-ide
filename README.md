@@ -60,8 +60,8 @@ cd getnf
 ```
 
 ## Macros
-https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
-
+- https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
+- https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
 If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 
 ## File Operations  
