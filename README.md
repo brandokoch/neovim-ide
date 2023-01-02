@@ -1,4 +1,20 @@
-# Installation
+# Neovim config 
+This repository presents a lightweight neovim config.
+
+## Table of Contents
+* [About](#about)
+* [Setup](#setup)
+* [Usage](#usage)
+* [License](#license)
+* [References](#references)
+
+# About
+
+# Setup
+Tested on the following OS-es and environments:
+- Linux Ubuntu 18.04 and 20.04
+- Windows WSL2 Ubuntu 18.04
+
 ```
 apt update
 apt-get update
