@@ -1,5 +1,5 @@
 # Neovim config 
-This repository presents a lightweight neovim config.
+This repository presents a lightweight neovim config based on a fork of https://github.com/LunarVim/nvim-basic-ide. 
 
 ## Table of Contents
 * [About](#about)
@@ -9,6 +9,18 @@ This repository presents a lightweight neovim config.
 * [References](#references)
 
 # About
+Detailed documentation
+
+✔️ VSCode look  
+✔️ File Explorer (NvimTree)  
+✔️ Integrated terminal  (ToggleTerm)  
+✔️ Debugging (DAP)  
+✔️ Latex editing ()  
+✔️ Grep and fuzzy search (FZF, RipGrep)  
+✔️ Auto-Completion   
+✔️ Linting  
+✔️ Git support  
+
 
 # Setup
 Tested on the following OS-es and environments:
@@ -44,7 +56,7 @@ cd getnf
 
 # Commands
 
-## Common Operations
+## Basic VIM
 | Command | Description |
 | --- | --- |
 |i| insert before the cursor  |
@@ -75,7 +87,9 @@ cd getnf
 5. :cfdo %s/foo/bar/g | :w 
 ```
 
-## Macros
+## Advanced VIM
+
+### Macros
 - https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
 - https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
 If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
@@ -150,7 +164,18 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`<CTRL>u` | Move whole screen up|
 |`<CTRL>d` | Move whole screen down|
 
-## Debugger (VimSpector)
+## Navigation (Files, Windows, Text)
+
+## Terminal (ToggleTerm)
+
+## File and Text search (Fzf, Ripgrep) 
+
+## File explorer (NvimTree)
+| Command | Description |
+| --- | --- |
+|`,pv` | Opens file tree to the left| 
+
+## Debugging (DAP)
 Every command starts with 'd' (meaning debug), the following letters hint to action performed  
 
 | Command | Description |
@@ -169,7 +194,7 @@ Every command starts with 'd' (meaning debug), the following letters hint to act
 
 To add variable to watch: go to watch window, go into insert mode and type the name of the variable and hit enter
 
-## Vim Fugative
+## Git (VimFugative)
 | Command | Description |
 | --- | --- |
 |`:G`| Open vim fugative|
@@ -188,12 +213,16 @@ To add variable to watch: go to watch window, go into insert mode and type the n
 |`:d3o` | accept from right window|
 | `:Gvdiffsplit!` | when in file to merge|
 
+:Gitsigns
+- blame_line  (see who edited line last)
+- preview_hunk (see changes on a line)
+
 ## Copying and pasting
 Copy paste yank outside of vim
 ```
  "*y
  "*p
- ```
+```
 
 ## Other
 | Command | Description |
@@ -214,6 +243,4 @@ Copy paste yank outside of vim
 buffers:
 - shift q to exit
 
-:Gitsigns
-- blame_line  (see who edited line last)
-- preview_hunk (see changes on a line)
+
