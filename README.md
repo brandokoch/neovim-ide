@@ -20,7 +20,7 @@ Detailed documentation
 ✔️ Auto-Completion   
 ✔️ Linting  
 ✔️ Git support  
-
+✔️ View markdown
 
 # Setup
 Tested on the following OS-es and environments:
@@ -54,9 +54,56 @@ cd getnf
 ./install.sh
 ```
 
-# Commands
+# Usage
+
+## Unsorted 
+
+### Copying and pasting
+Copy paste yank outside of vim
+```
+ "*y
+ "*p
+```
+
+### Other
+| Command | Description |
+| --- | --- |
+|`y`| Yank what is selected with visual mode|
+|`p`| Paste yanked text after the current cursor position|
+|`P`| Paste yanked text before the current cursor position|
+|`yy` | Yank line|
+|`gd` | Go to definition|
+|`u`| Undo last action|
+|`<CTRL>r`| Redo last action |
+|`<CTRL>+` | Zoom in|
+|`<CTRL>-` | Zoom out|
+|`<SHIFT>s`| Construct Find and replace expression|
+|`set spell spelllang=en_us`| Spell check strings |
+|`set nospell`| Disable spell check|
+
+buffers:
+- shift q to exit
+
+### Search and replace inside file
+|`%s/what/with_what/gc`| Globally replace and ask for confirmation|
+|`/search_term`| Search for search_term in file|
+
+### Search and replace in project:
+```
+1. leader f to open fzf
+2. search for pattern and when all entries match continue
+3. cntrl a (to select all entries)
+4. enter (to add them to quicklist)
+5. :cfdo %s/foo/bar/g | :w 
+```
+
+### Macros
+- https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
+- https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
+If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 
 ## Basic VIM
+
 | Command | Description |
 | --- | --- |
 |i| insert before the cursor  |
@@ -74,74 +121,7 @@ cd getnf
 |s| substitute from where you are to the next command (noun)  |
 |S| substitute the entire current line|
 
-## Search and replace inside file
-|`%s/what/with_what/gc`| Globally replace and ask for confirmation|
-|`/search_term`| Search for search_term in file|
-
-## Search and replace in project:
-```
-1. leader f to open fzf
-2. search for pattern and when all entries match continue
-3. cntrl a (to select all entries)
-4. enter (to add them to quicklist)
-5. :cfdo %s/foo/bar/g | :w 
-```
-
-## Advanced VIM
-
-### Macros
-- https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
-- https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
-If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
-
-## File Operations  
-| Command | Description |
-| --- | --- |
-|`ZQ` | Force Quit  |
-|`ZZ` | Save and Quit  |
-|`,w` | Write (save) file  |
-|`:sort` | sort file  |
-|`:e file`| Edit (open) file |
-|`e src/**/file.txt`| Fuzzy find and open file |
-
-## Window Operations  
-| Command | Description |
-| --- | --- |
-|`:sp`| Split Horizontally |
-|`:50sp`| Split Horizontally with size 50 |
-|`:vs`| Split Verically |
-|`:50vs`| Split Verically with size 50 |
-|`<CTRL>wn`| Open new window |
-|`<CTRL>wj` | Move to below window  |
-|`<CTRL>wk` | Move to above window  | 
-|`<CTRL>wh` | Move to left window  |
-|`<CTRL>wl` | Move to right window  |
-|`resize 10`| Resize window to 10 rows |
-|`vertical resize 10`| Resize window to 10 columns | 
-
-## Tab Operations
-| Command | Description |
-| --- | --- |
-|`:tabedit path` | Open file in a new tab  |
-|`:tabc` | Close current tab  |
-|`:tabonly` | Keep only current tab|  
-|`:qa` | Close all tabs  |
-|`:tabclose i` | Close i-th tab  |
-|`<CTRL><PageUp>` | Cycle tabs  |
-|`<CTRL><PageDown>` | Cycle tabs  |
-|`:tabn` | Go to next tab  |
-|`:tabp` | Go to previous tab  |
-|`:tabfirst` | Go to first tab  |
-|`:tablast` | Go to last tab  |
-|`gt` | Go to next tab |
-|`gT` | Go to previous tab  |
-
-## File Tree
-| Command | Description |
-| --- | --- |
-|`,pv` | Opens file tree to the left|  
-
-## Vim - Movements
+## #Movements
 | Command | Description |
 | --- | --- |
 |`G`| Go to bottom of file|
@@ -163,6 +143,51 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`<SHIFT>a` | Go into insert mode at the end of the line (append)|
 |`<CTRL>u` | Move whole screen up|
 |`<CTRL>d` | Move whole screen down|
+
+### File Operations  
+| Command | Description |
+| --- | --- |
+|`ZQ` | Force Quit  |
+|`ZZ` | Save and Quit  |
+|`,w` | Write (save) file  |
+|`:sort` | sort file  |
+|`:e file`| Edit (open) file |
+|`e src/**/file.txt`| Fuzzy find and open file |
+
+### Window Operations  
+| Command | Description |
+| --- | --- |
+|`:sp`| Split Horizontally |
+|`:50sp`| Split Horizontally with size 50 |
+|`:vs`| Split Verically |
+|`:50vs`| Split Verically with size 50 |
+|`<CTRL>wn`| Open new window |
+|`<CTRL>wj` | Move to below window  |
+|`<CTRL>wk` | Move to above window  | 
+|`<CTRL>wh` | Move to left window  |
+|`<CTRL>wl` | Move to right window  |
+|`resize 10`| Resize window to 10 rows |
+|`vertical resize 10`| Resize window to 10 columns | 
+
+### Tab Operations
+| Command | Description |
+| --- | --- |
+|`:tabedit path` | Open file in a new tab  |
+|`:tabc` | Close current tab  |
+|`:tabonly` | Keep only current tab|  
+|`:qa` | Close all tabs  |
+|`:tabclose i` | Close i-th tab  |
+|`<CTRL><PageUp>` | Cycle tabs  |
+|`<CTRL><PageDown>` | Cycle tabs  |
+|`:tabn` | Go to next tab  |
+|`:tabp` | Go to previous tab  |
+|`:tabfirst` | Go to first tab  |
+|`:tablast` | Go to last tab  |
+|`gt` | Go to next tab |
+|`gT` | Go to previous tab  |
+
+## Advanced VIM
+
 
 ## Navigation (Files, Windows, Text)
 
@@ -217,30 +242,13 @@ To add variable to watch: go to watch window, go into insert mode and type the n
 - blame_line  (see who edited line last)
 - preview_hunk (see changes on a line)
 
-## Copying and pasting
-Copy paste yank outside of vim
-```
- "*y
- "*p
-```
+# References
+This repository is based on a fork of: https://github.com/LunarVim/nvim-basic-ide by chris@machine
 
-## Other
-| Command | Description |
-| --- | --- |
-|`y`| Yank what is selected with visual mode|
-|`p`| Paste yanked text after the current cursor position|
-|`P`| Paste yanked text before the current cursor position|
-|`yy` | Yank line|
-|`gd` | Go to definition|
-|`u`| Undo last action|
-|`<CTRL>r`| Redo last action |
-|`<CTRL>+` | Zoom in|
-|`<CTRL>-` | Zoom out|
-|`<SHIFT>s`| Construct Find and replace expression|
-|`set spell spelllang=en_us`| Spell check strings |
-|`set nospell`| Disable spell check|
+Other references:
+- Neovim from scratch with Lua tutorial series: https://youtu.be/ctH-a-1eUME
 
-buffers:
-- shift q to exit
+# License
+This repository is under an MIT License
 
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]()
