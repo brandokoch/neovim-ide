@@ -97,6 +97,12 @@ buffers:
 5. :cfdo %s/foo/bar/g | :w 
 ```
 
+### Copy and paste
+In order for copied text to not be overwritten by delete commands copy to a register instead:
+- select text
+- select register "a" and yank with y: `"ay"`
+- to paste select register "a" and paster with p: `"ap`
+
 ### Macros
 - https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
 - https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
