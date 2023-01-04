@@ -106,8 +106,8 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
-  use { 'junegunn/fzf', run = ":call fzf#install()" }
-  use { 'junegunn/fzf.vim' }
+  -- use { 'junegunn/fzf', run = ":call fzf#install()" }
+  -- use { 'junegunn/fzf.vim' }
 
   use({
     "iamcco/markdown-preview.nvim",
