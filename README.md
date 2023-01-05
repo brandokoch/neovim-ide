@@ -65,6 +65,9 @@ Copy paste yank outside of vim
  "*p
 ```
 
+### Get info on line warning or error
+`gl`
+
 ### Other
 | Command | Description |
 | --- | --- |
