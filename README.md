@@ -58,36 +58,7 @@ cd getnf
 
 ## Unsorted 
 
-### Copying and pasting
-Copy paste yank outside of vim
-```
- "*y
- "*p
-```
 
-### Get info on line warning or error
-`gl`
-
-### Other
-| Command | Description |
-| --- | --- |
-|`y`| Yank what is selected with visual mode|
-|`p`| Paste yanked text after the current cursor position|
-|`P`| Paste yanked text before the current cursor position|
-|`yy` | Yank line|
-|`gd` | Go to definition|
-|`u`| Undo last action|
-|`<CTRL>r`| Redo last action |
-|`<CTRL>+` | Zoom in|
-|`<CTRL>-` | Zoom out|
-|`<SHIFT>s`| Construct Find and replace expression|
-|`:set spell spelllang=en_us`| Spell check strings |
-|`:set nospell`| Disable spell check|
-|`/search_term`| Search for search_term in file|
-
-
-buffers:
-- shift q to exit
 
 ### Search and replace inside file
 |`:%s/what/with_what/gc`| Globally (File scope) replace|
@@ -116,11 +87,11 @@ In order for copied text to not be overwritten by delete commands copy to a regi
 Macros feature is one of the most powerful features of Vim. It allows you to record a set of commands you do on text and apply it anywhere you want. 
 
 To record a command:
-- Go on one of the lines you want to perform the command on
-- Start recording the command and store it in a register denoted by a letter (e.g. 'a')
- - `q<register`, e.g. `qa` stores the command in 'a' register
-- When your command sequence is done press `q`
-- Your command is now saved
+1. Go on one of the lines you want to perform the command on
+2. Start recording the command and store it in a register denoted by a letter (e.g. 'a')
+  - `q<register>`, e.g. `qa` stores the command in 'a' register
+3. When your command sequence is done press `q`
+4. Your command is now saved
 
 To apply the recorded commands
 - Go to a position in text
@@ -134,7 +105,7 @@ To apply the recorded commands to each selected line
 - https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
 If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 
-## Basic VIM
+## Vim Basics
 
 | Command | Description |
 | --- | --- |
@@ -152,8 +123,38 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |ct?| change change up to the question mark  |
 |s| substitute from where you are to the next command (noun)  |
 |S| substitute the entire current line|
+|`y`| Yank what is selected with visual mode|
+|`p`| Paste yanked text after the current cursor position|
+|`P`| Paste yanked text before the current cursor position|
+|`yy` | Yank line|
+|`gd` | Go to definition|
+|`u`| Undo last action|
+|`<CTRL>r`| Redo last action |
+|`<CTRL>+` | Zoom in|
+|`<CTRL>-` | Zoom out|
+|`<SHIFT>s`| Construct Find and replace expression|
+|`:set spell spelllang=en_us`| Spell check strings |
+|`:set nospell`| Disable spell check|
+|`/search_term`| Search for search_term in file|
 
-## #Movements
+
+### File Operations  
+| Command | Description |
+| --- | --- |
+|`ZQ` | Force Quit  |
+|`ZZ` | Save and Quit  |
+|`,w` | Write (save) file  |
+|`:sort` | sort file  |
+|`:e file`| Edit (open) file |
+|`e src/**/file.txt`| Fuzzy find and open file |
+
+
+
+
+
+## Navigation (Files, Windows, Text, Tabs)
+
+### Text Movements
 | Command | Description |
 | --- | --- |
 |`G`| Go to bottom of file|
@@ -176,15 +177,6 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`<CTRL>u` | Move whole screen up|
 |`<CTRL>d` | Move whole screen down|
 
-### File Operations  
-| Command | Description |
-| --- | --- |
-|`ZQ` | Force Quit  |
-|`ZZ` | Save and Quit  |
-|`,w` | Write (save) file  |
-|`:sort` | sort file  |
-|`:e file`| Edit (open) file |
-|`e src/**/file.txt`| Fuzzy find and open file |
 
 ### Window Operations  
 | Command | Description |
@@ -194,12 +186,13 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`:vs`| Split Verically |
 |`:50vs`| Split Verically with size 50 |
 |`<CTRL>wn`| Open new window |
-|`<CTRL>wj` | Move to below window  |
-|`<CTRL>wk` | Move to above window  | 
-|`<CTRL>wh` | Move to left window  |
-|`<CTRL>wl` | Move to right window  |
-|`resize 10`| Resize window to 10 rows |
-|`vertical resize 10`| Resize window to 10 columns | 
+|`<CTRL>j` | Move to below window  |
+|`<CTRL>k` | Move to above window  | 
+|`<CTRL>h` | Move to left window  |
+|`<CTRL>l` | Move to right window  |
+|`:resize 10`| Resize window to 10 rows |
+|`:vertical resize 10`| Resize window to 10 columns | 
+
 
 ### Tab Operations
 | Command | Description |
@@ -218,12 +211,10 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`gt` | Go to next tab |
 |`gT` | Go to previous tab  |
 
-## Advanced VIM
-
-
-## Navigation (Files, Windows, Text)
-
 ## Terminal (ToggleTerm)
+[ToggleTerm]() allows you to open a state persisting terminal window inside Vim for quick command line operations. 
+
+Toggle it with `<CTRL>/`
 
 ## File and Text search (Fzf, Ripgrep) 
 
@@ -288,6 +279,23 @@ Performing git operations from inside vim is done with [VimFugative](https://git
 |`:d3o` | Accept change from right window when merging|
  
 # Other unsorted
+ 
+ ### Copying and pasting
+Copy paste yank outside of vim
+```
+ "*y
+ "*p
+```
+
+### Get info on line warning or error
+`gl`
+
+### Other
+| Command | Description |
+| --- | --- |
+
+buffers:
+- shift q to exit
  
  :Gitsigns
 - blame_line  (see who edited line last)
