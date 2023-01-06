@@ -27,7 +27,7 @@ Tested on the following OS-es and environments:
 - Linux Ubuntu 18.04 and 20.04
 - Windows WSL2 Ubuntu 18.04
 
-```
+```bash
 apt update
 apt-get update
 
@@ -88,15 +88,16 @@ buffers:
 - shift q to exit
 
 ### Search and replace inside file
-|`%s/what/with_what/gc`| Globally replace and ask for confirmation|
+|`:%s/what/with_what/gc`| Globally (File scope) replace|
+|`:%s/what/with_what/gc`| Globally (File scope) replace and ask confirmation for each change|
 |`/search_term`| Search for search_term in file|
 
 ### Search and replace in project:
 ```
-1. leader f to open fzf
-2. search for pattern and when all entries match continue
-3. cntrl a (to select all entries)
-4. enter (to add them to quicklist)
+1. `,f` to open fzf grep search
+2. Type patterns 
+3. `<CTRL>+<SHIFT>` to add individual files or `<CTRL>a` to select all matches entries
+4. `<ENTER>` to add to quickfix list
 5. :cfdo %s/foo/bar/g | :w 
 ```
 
