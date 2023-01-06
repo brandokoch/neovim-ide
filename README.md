@@ -1,4 +1,6 @@
 # Neovim config 
+
+I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. In this repository I am trying to solve the aforementioned problems 
 This repository presents a lightweight neovim config based on a fork of https://github.com/LunarVim/nvim-basic-ide. 
 
 ## Table of Contents
@@ -61,6 +63,8 @@ cd getnf
 
 
 ### Search and replace inside file
+| Command | Description |
+| --- | --- |
 |`:%s/what/with_what/gc`| Globally (File scope) replace|
 |`:%s/what/with_what/gc`| Globally (File scope) replace and ask confirmation for each change|
 
@@ -144,13 +148,10 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`ZQ` | Force Quit  |
 |`ZZ` | Save and Quit  |
 |`,w` | Write (save) file  |
+|`,q` | Quit file (must be saved beforehand |
 |`:sort` | sort file  |
 |`:e file`| Edit (open) file |
 |`e src/**/file.txt`| Fuzzy find and open file |
-
-
-
-
 
 ## Navigation (Files, Windows, Text, Tabs)
 
@@ -216,7 +217,23 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 
 Toggle it with `<CTRL>/`
 
-## File and Text search (Fzf, Ripgrep) 
+## File and Text search (Fzf) 
+My favorite vim plugin, Fzf, allows you to live search files and text recursively inside the working directory with blazing speed. Preview of each match is also shown which makes searching for the right match easy. I recommend using this plugin to jump to files rather than using a file explorer or typing a file path manually.
+
+Depending on the use-case, use one of the below commands to open Fzf:
+- Search files by matching their file name/path
+  - `,p`
+- Search text while matching only the text
+  - `,f`
+- Search text while matching both the text and path
+  - `,v`
+
+Navigation:
+- Once inside Fzf you can navigate over matches with `<CTRL>j` or `<CTRL>K`. 
+- To move page up and down in the preview window use `<SHIFT><UP>` and `<SHIFT><DOWN>` respectively.
+- To open a file corresponding to a match press `<ENTER>`
+
+Fzf can be also used to populate a quickfix list (list of matches) which you can target for project-wide search and replace operations. This is demonstrated in section (TODO)
 
 ## File explorer (NvimTree)
 [NvimTree](https://github.com/nvim-tree/nvim-tree.lua) is used as a file explorer. Use it for viewing the directory/project structure and for creating/removing/renaming files. I don't recommend using it for opening files as that can be done much faster with Fzf (TODO link to fzf) 
@@ -228,11 +245,9 @@ Toggle it with `<CTRL>/`
 |`k` | Move up| 
 |`h` | Collapse directory| 
 |`l` | Expand directory|
-|`a` | Create file/directory (for a directory end name with '/'|
+|`a` | Create file/directory (for a directory, end name with '/'|
 |`r` | Rename file/directory | 
 |`d` | Delete file/direcotry | 
-
-
 
 
 ## Debugging (DAP)
