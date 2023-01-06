@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "codelldb",
+            "request": "launch",
+            "name": "Launch file",
+            "program": "/home/bkoch/.config/nvim/deleteme.cpp",
+            "cwd" : "${workspaceFolder}",
+            "stopOnEntry" : false
+        }
+    ]
+}
