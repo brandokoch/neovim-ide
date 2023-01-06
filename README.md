@@ -208,51 +208,76 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 ## File and Text search (Fzf, Ripgrep) 
 
 ## File explorer (NvimTree)
+[NvimTree](https://github.com/nvim-tree/nvim-tree.lua) is used as a file explorer. Use it for viewing the directory/project structure and for creating/removing/renaming files. I don't recommend using it for opening files as that can be done much faster with Fzf (TODO link to fzf) 
+ 
 | Command | Description |
 | --- | --- |
-|`,pv` | Opens file tree to the left| 
+|`,e` | Open/Clone the file tree| 
+|`j` | Move down| 
+|`k` | Move up| 
+|`h` | Collapse directory| 
+|`l` | Expand directory|
+|`a` | Create file/directory (for a directory end name with '/'|
+|`r` | Rename file/directory | 
+|`d` | Delete file/direcotry | 
+
+
+
 
 ## Debugging (DAP)
-Every command starts with 'd' (meaning debug), the following letters hint to action performed  
+Debugging is done with [dap](https://github.com/mfussenegger/nvim-dap). DAP is a Debug Adapter Protocol client implementation for Neovim. 
 
+To debug applications, you need to configure two things per language:
+- A debug adapter
+- A debug configuration (How to launch your application to debug or how to attach to a running
+  application)
+
+### Configuring the adapter and the configuration (Python)
+ 
+ 
+ 
+### How to debug
 | Command | Description |
 | --- | --- |
-|`,dd` | Start Debugger  |
-|`,de` | Exit Debugger  |
-|`,d_` | Restart Debugger  |
+|`,dc` | Start Debugger / Continue  |
+|`,dt` | Terminate Debugger  |
 |`,dj` | Step over  |
 |`,dl` | Step into  |
 |`,dk` | Step out  |
-|`,drc` | Run to Cursor  |
-|`,dbp` | Toggle Breakpoint  |
+|`,db` | Toggle Breakpoint  |
+ 
+
+## Git (VimFugative)
+Performing git operations from inside vim is done with [VimFugative](https://github.com/tpope/vim-fugitive) which you invoke with `:G`. Once opened you can navigate with the usual `j` and `k` and perform actions on files. Regular git commands can be called with VimFugative by capitalizing the git command: `:Git <your-command>`
+| Command | Description |
+| --- | --- |
+|`:G`| Open vim fugative|
+|`g?`| Help |
+|`s`| Stage file |
+|`u` | Unstage file|
+|`=` | Toggle inline diff for file|
+|`dv`| Toggle vertical diff, to quit dq|
+|`X`| Delete change on unstaged file|
+|`cc`| Commit staged files|
+|`ca`| Amend staged files|
+|`:Gvdiffsplit`| Toggle vertical diff from previous commit for a file|
+|`:Gvdiffsplit <branch_name>` | Toggle vertical diff from <branch_name> branch for a file|
+| `:Gvdiffsplit!` | when in file to merge|
+|`]c`| When merging to jump to next conflict |
+|`d2o`| Accept change from left window when merging |
+|`:d3o` | Accept change from right window when merging|
+ 
+# Other unsorted
+ 
+ :Gitsigns
+- blame_line  (see who edited line last)
+- preview_hunk (see changes on a line)
+ 
 |`,di` | Inspect Variable  |
 |`,<ENTER>`| Change value in variables|
 |`<DEL>`|Delete watch|
 
 To add variable to watch: go to watch window, go into insert mode and type the name of the variable and hit enter
-
-## Git (VimFugative)
-| Command | Description |
-| --- | --- |
-|`:G`| Open vim fugative|
-|`g?`| Help |
-|`s`| Stage file|
-|`u` | Unstage file|
-|`=` | Toggle inline diff|
-|`dv`| Toggle vertical diff, to quit dq|
-|`X`| Delete change on unstaged file|
-|`cc`| commit|
-|`:Gvdiffsplit`| vertical diff from previous commit |
-|`:Gvdiffsplit main` | vertical diff split from branch|
-| `:Gvdiffsplit!` | when in file to merge|
-|`]c`| in merge to jump to next |
-|`d2o`| accept from left window |
-|`:d3o` | accept from right window|
-| `:Gvdiffsplit!` | when in file to merge|
-
-:Gitsigns
-- blame_line  (see who edited line last)
-- preview_hunk (see changes on a line)
 
 # References
 This repository is based on a fork of: https://github.com/LunarVim/nvim-basic-ide by chris@machine
