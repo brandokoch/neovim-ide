@@ -1,8 +1,6 @@
 # Neovim config 
+This repository presents a NeoVim config that I use day-to-day, based on a fork of [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 
-I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. 
-
-In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even some more advanced users.
 
 ## Table of Contents
 * [About](#about)
@@ -12,19 +10,18 @@ In this repository I am trying to solve the aforementioned problems by providing
 * [References](#references)
 
 # About
-Detailed documentation
+I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. 
 
-✔️ VSCode look  
-✔️ File Explorer (NvimTree)  
-✔️ Integrated terminal  (ToggleTerm)  
-✔️ Debugging (DAP)  
-✔️ Latex editing ()  
-✔️ Grep and fuzzy search (FZF, RipGrep)  
-✔️ Auto-Completion   
-✔️ Linting  
-✔️ Git support  
-✔️ View markdown
+In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even some more advanced users.
 
+✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  
+✔️ Debugging (DAP)  ✔️ Latex editing ()  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion   
+✔️ Linting  ✔️ Git support  ✔️ View markdown
+
+Disclamers:
+1. <strong>I'am by no means an expert in NeoVim or lua for that matter, this repo is a culmination of my hours of research and experience on the subject of using Vim</strong>
+2. <strong>As a Machine Learning Engineer and Researcher I might be biased in my workflow and therefore configuration so make sure to perform customizations specific to you and the programming languages you use</strong>
+  
 # Setup
 Tested on the following OS-es and environments:
 - Linux Ubuntu 18.04 and 20.04
