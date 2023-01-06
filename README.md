@@ -81,8 +81,10 @@ Copy paste yank outside of vim
 |`<CTRL>+` | Zoom in|
 |`<CTRL>-` | Zoom out|
 |`<SHIFT>s`| Construct Find and replace expression|
-|`set spell spelllang=en_us`| Spell check strings |
-|`set nospell`| Disable spell check|
+|`:set spell spelllang=en_us`| Spell check strings |
+|`:set nospell`| Disable spell check|
+|`/search_term`| Search for search_term in file|
+
 
 buffers:
 - shift q to exit
@@ -90,19 +92,19 @@ buffers:
 ### Search and replace inside file
 |`:%s/what/with_what/gc`| Globally (File scope) replace|
 |`:%s/what/with_what/gc`| Globally (File scope) replace and ask confirmation for each change|
-|`/search_term`| Search for search_term in file|
 
-### Search and replace in project:
+### Search and replace/delete in project:
 ```
 1. `,f` to open fzf grep search
 2. Type patterns 
 3. `<CTRL>+<SHIFT>` to add individual files or `<CTRL>a` to select all matches entries
 4. `<ENTER>` to add to quickfix list
-5. :cfdo %s/foo/bar/g | :w 
+5. `:cfdo %s/foo/bar/g | :w` to replace or `:cfdo g/to_replace/d | :w` to delete 
 ```
 
 ### Commenting
-- select + <leader> + /
+- select text in visual mode
+- `<leader>/`
 
 ### Copy and paste
 In order for copied text to not be overwritten by delete commands copy to a register instead:
@@ -111,6 +113,23 @@ In order for copied text to not be overwritten by delete commands copy to a regi
 - to paste select register "a" and paster with p: `"ap`
 
 ### Macros
+Macros feature is one of the most powerful features of Vim. It allows you to record a set of commands you do on text and apply it anywhere you want. 
+
+To record a command:
+- Go on one of the lines you want to perform the command on
+- Start recording the command and store it in a register denoted by a letter (e.g. 'a')
+ - `q<register`, e.g. `qa` stores the command in 'a' register
+- When your command sequence is done press `q`
+- Your command is now saved
+
+To apply the recorded commands
+- Go to a position in text
+- Do `@<register>`, e.g. `@a`
+
+To apply the recorded commands to each selected line
+- Select lines with visual mode
+- Do `:normal @<register>`
+
 - https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
 - https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
 If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
