@@ -101,6 +101,9 @@ return packer.startup(function(use)
   -- 
   -- bkoch Custom
   --
+  
+  use { 'lervag/vimtex'}
+
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' }
