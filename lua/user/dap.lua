@@ -17,20 +17,13 @@ dap_install.setup({})
 
 dap_install.config("python", {})
 
+
 -- add other configs here
 dap.adapters.python = {
   type = 'executable';
   command = '/home/bkoch/.local/share/nvim/mason/bin/debugpy-adapter' -- Path to adapter you installed, either mason one or pip one inside your env
   -- args = { '-m', 'debugpy.adapter' };
 }
-
--- local continue = function()
--- 	if vim.fn.filereadable('.vscode/launch.json') then
--- 		require('dap.ext.vscode').load_launchjs()
--- 	end  
--- 		require('dap').continue()
--- end
--- vim.lsp.buffer_mappings.normal_mode["<leader>dc"] = { continue, "Start/Continue debug" }
 
 -- dap.configurations.python = {
 --   {
