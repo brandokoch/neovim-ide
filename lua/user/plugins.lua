@@ -106,9 +106,6 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
-  -- use { 'junegunn/fzf', run = ":call fzf#install()" }
-  -- use { 'junegunn/fzf.vim' }
-
   use({"lervag/vimtex"})
 
   use({
@@ -119,6 +116,8 @@ return packer.startup(function(use)
   
   use {'tpope/vim-fugitive'}
   use {'sheerun/vim-polyglot'} -- coloring
+
+  use {'szw/vim-maximizer'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
