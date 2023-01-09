@@ -1,5 +1,6 @@
 # Neovim config 
-This repository presents a lightweight neovim config based on a fork of https://github.com/LunarVim/nvim-basic-ide. 
+This repository presents a NeoVim config that I use day-to-day, based on a fork of [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
+
 
 ## Table of Contents
 * [About](#about)
@@ -9,25 +10,24 @@ This repository presents a lightweight neovim config based on a fork of https://
 * [References](#references)
 
 # About
-Detailed documentation
+I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. 
 
-✔️ VSCode look  
-✔️ File Explorer (NvimTree)  
-✔️ Integrated terminal  (ToggleTerm)  
-✔️ Debugging (DAP)  
-✔️ Latex editing ()  
-✔️ Grep and fuzzy search (FZF, RipGrep)  
-✔️ Auto-Completion   
-✔️ Linting  
-✔️ Git support  
-✔️ View markdown
+In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even some more advanced users.
 
+✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  
+✔️ Debugging (DAP)  ✔️ Latex editing ()  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion   
+✔️ Linting  ✔️ Git support  ✔️ View markdown
+
+Disclamers:
+1. <strong>I'am by no means an expert in NeoVim or lua for that matter, this repo is a culmination of my hours of research and experience on the subject of using Vim</strong>
+2. <strong>As a Machine Learning Engineer and Researcher I might be biased in my workflow and therefore configuration so make sure to perform customizations specific to you and the programming languages you use</strong>
+  
 # Setup
 Tested on the following OS-es and environments:
 - Linux Ubuntu 18.04 and 20.04
 - Windows WSL2 Ubuntu 18.04
 
-```
+```bash
 apt update
 apt-get update
 
@@ -58,50 +58,26 @@ cd getnf
 
 ## Unsorted 
 
-### Copying and pasting
-Copy paste yank outside of vim
-```
- "*y
- "*p
-```
 
-### Get info on line warning or error
-`gl`
-
-### Other
-| Command | Description |
-| --- | --- |
-|`y`| Yank what is selected with visual mode|
-|`p`| Paste yanked text after the current cursor position|
-|`P`| Paste yanked text before the current cursor position|
-|`yy` | Yank line|
-|`gd` | Go to definition|
-|`u`| Undo last action|
-|`<CTRL>r`| Redo last action |
-|`<CTRL>+` | Zoom in|
-|`<CTRL>-` | Zoom out|
-|`<SHIFT>s`| Construct Find and replace expression|
-|`set spell spelllang=en_us`| Spell check strings |
-|`set nospell`| Disable spell check|
-
-buffers:
-- shift q to exit
 
 ### Search and replace inside file
-|`%s/what/with_what/gc`| Globally replace and ask for confirmation|
-|`/search_term`| Search for search_term in file|
+| Command | Description |
+| --- | --- |
+|`:%s/what/with_what/gc`| Globally (File scope) replace|
+|`:%s/what/with_what/gc`| Globally (File scope) replace and ask confirmation for each change|
 
-### Search and replace in project:
+### Search and replace/delete in project:
 ```
-1. leader f to open fzf
-2. search for pattern and when all entries match continue
-3. cntrl a (to select all entries)
-4. enter (to add them to quicklist)
-5. :cfdo %s/foo/bar/g | :w 
+1. `,f` to open fzf grep search
+2. Type patterns 
+3. `<CTRL>+<SHIFT>` to add individual files or `<CTRL>a` to select all matches entries
+4. `<ENTER>` to add to quickfix list
+5. `:cfdo %s/foo/bar/g | :w` to replace or `:cfdo g/to_replace/d | :w` to delete 
 ```
 
 ### Commenting
-- select + <leader> + /
+- select text in visual mode
+- `<leader>/`
 
 ### Copy and paste
 In order for copied text to not be overwritten by delete commands copy to a register instead:
@@ -110,11 +86,28 @@ In order for copied text to not be overwritten by delete commands copy to a regi
 - to paste select register "a" and paster with p: `"ap`
 
 ### Macros
+Macros feature is one of the most powerful features of Vim. It allows you to record a set of commands you do on text and apply it anywhere you want. 
+
+To record a command:
+1. Go on one of the lines you want to perform the command on
+2. Start recording the command and store it in a register denoted by a letter (e.g. 'a')
+  - `q<register>`, e.g. `qa` stores the command in 'a' register
+3. When your command sequence is done press `q`
+4. Your command is now saved
+
+To apply the recorded commands
+- Go to a position in text
+- Do `@<register>`, e.g. `@a`
+
+To apply the recorded commands to each selected line
+- Select lines with visual mode
+- Do `:normal @<register>`
+
 - https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
 - https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
 If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 
-## Basic VIM
+## Vim Basics
 
 | Command | Description |
 | --- | --- |
@@ -132,8 +125,35 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |ct?| change change up to the question mark  |
 |s| substitute from where you are to the next command (noun)  |
 |S| substitute the entire current line|
+|`y`| Yank what is selected with visual mode|
+|`p`| Paste yanked text after the current cursor position|
+|`P`| Paste yanked text before the current cursor position|
+|`yy` | Yank line|
+|`gd` | Go to definition|
+|`u`| Undo last action|
+|`<CTRL>r`| Redo last action |
+|`<CTRL>+` | Zoom in|
+|`<CTRL>-` | Zoom out|
+|`<SHIFT>s`| Construct Find and replace expression|
+|`:set spell spelllang=en_us`| Spell check strings |
+|`:set nospell`| Disable spell check|
+|`/search_term`| Search for search_term in file|
 
-## #Movements
+
+### File Operations  
+| Command | Description |
+| --- | --- |
+|`ZQ` | Force Quit  |
+|`ZZ` | Save and Quit  |
+|`,w` | Write (save) file  |
+|`,q` | Quit file (must be saved beforehand |
+|`:sort` | sort file  |
+|`:e file`| Edit (open) file |
+|`e src/**/file.txt`| Fuzzy find and open file |
+
+## Navigation (Files, Windows, Text, Tabs)
+
+### Text Movements
 | Command | Description |
 | --- | --- |
 |`G`| Go to bottom of file|
@@ -156,15 +176,6 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`<CTRL>u` | Move whole screen up|
 |`<CTRL>d` | Move whole screen down|
 
-### File Operations  
-| Command | Description |
-| --- | --- |
-|`ZQ` | Force Quit  |
-|`ZZ` | Save and Quit  |
-|`,w` | Write (save) file  |
-|`:sort` | sort file  |
-|`:e file`| Edit (open) file |
-|`e src/**/file.txt`| Fuzzy find and open file |
 
 ### Window Operations  
 | Command | Description |
@@ -174,12 +185,13 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`:vs`| Split Verically |
 |`:50vs`| Split Verically with size 50 |
 |`<CTRL>wn`| Open new window |
-|`<CTRL>wj` | Move to below window  |
-|`<CTRL>wk` | Move to above window  | 
-|`<CTRL>wh` | Move to left window  |
-|`<CTRL>wl` | Move to right window  |
-|`resize 10`| Resize window to 10 rows |
-|`vertical resize 10`| Resize window to 10 columns | 
+|`<CTRL>j` | Move to below window  |
+|`<CTRL>k` | Move to above window  | 
+|`<CTRL>h` | Move to left window  |
+|`<CTRL>l` | Move to right window  |
+|`:resize 10`| Resize window to 10 rows |
+|`:vertical resize 10`| Resize window to 10 columns | 
+
 
 ### Tab Operations
 | Command | Description |
@@ -198,61 +210,115 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`gt` | Go to next tab |
 |`gT` | Go to previous tab  |
 
-## Advanced VIM
-
-
-## Navigation (Files, Windows, Text)
-
 ## Terminal (ToggleTerm)
+[ToggleTerm]() allows you to open a state persisting terminal window inside Vim for quick command line operations. 
 
-## File and Text search (Fzf, Ripgrep) 
+Toggle it with `<CTRL>/`
+
+## File and Text search (Fzf) 
+My favorite vim plugin, Fzf, allows you to live search files and text recursively inside the working directory with blazing speed. Preview of each match is also shown which makes searching for the right match easy. I recommend using this plugin to jump to files rather than using a file explorer or typing a file path manually.
+
+Depending on the use-case, use one of the below commands to open Fzf:
+- Search files by matching their file name/path
+  - `,p`
+- Search text while matching only the text
+  - `,f`
+- Search text while matching both the text and path
+  - `,v`
+
+Navigation:
+- Once inside Fzf you can navigate over matches with `<CTRL>j` or `<CTRL>K`. 
+- To move page up and down in the preview window use `<SHIFT><UP>` and `<SHIFT><DOWN>` respectively.
+- To open a file corresponding to a match press `<ENTER>`
+
+Fzf can be also used to populate a quickfix list (list of matches) which you can target for project-wide search and replace operations. This is demonstrated in section (TODO)
 
 ## File explorer (NvimTree)
+[NvimTree](https://github.com/nvim-tree/nvim-tree.lua) is used as a file explorer. Use it for viewing the directory/project structure and for creating/removing/renaming files. I don't recommend using it for opening files as that can be done much faster with Fzf (TODO link to fzf) 
+ 
 | Command | Description |
 | --- | --- |
-|`,pv` | Opens file tree to the left| 
+|`,e` | Open/Clone the file tree| 
+|`j` | Move down| 
+|`k` | Move up| 
+|`h` | Collapse directory| 
+|`l` | Expand directory|
+|`a` | Create file/directory (for a directory, end name with '/'|
+|`r` | Rename file/directory | 
+|`d` | Delete file/direcotry | 
+
 
 ## Debugging (DAP)
-Every command starts with 'd' (meaning debug), the following letters hint to action performed  
+Debugging is done with [dap](https://github.com/mfussenegger/nvim-dap). DAP is a Debug Adapter Protocol client implementation for Neovim. 
 
+To debug applications, you need to configure two things per language:
+- A debug adapter
+- A debug configuration (How to launch your application to debug or how to attach to a running
+  application)
+
+### Configuring the adapter and the configuration (Python)
+ 
+ 
+ 
+### How to debug
 | Command | Description |
 | --- | --- |
-|`,dd` | Start Debugger  |
-|`,de` | Exit Debugger  |
-|`,d_` | Restart Debugger  |
+|`,dc` | Start Debugger / Continue  |
+|`,dt` | Terminate Debugger  |
 |`,dj` | Step over  |
 |`,dl` | Step into  |
 |`,dk` | Step out  |
-|`,drc` | Run to Cursor  |
-|`,dbp` | Toggle Breakpoint  |
+|`,db` | Toggle Breakpoint  |
+ 
+
+## Git (VimFugative)
+Performing git operations from inside vim is done with [VimFugative](https://github.com/tpope/vim-fugitive) which you invoke with `:G`. Once opened you can navigate with the usual `j` and `k` and perform actions on files. Regular git commands can be called with VimFugative by capitalizing the git command: `:Git <your-command>`
+| Command | Description |
+| --- | --- |
+|`:G`| Open vim fugative|
+|`g?`| Help |
+|`s`| Stage file |
+|`u` | Unstage file|
+|`=` | Toggle inline diff for file|
+|`dv`| Toggle vertical diff, to quit dq|
+|`X`| Delete change on unstaged file|
+|`cc`| Commit staged files|
+|`ca`| Amend staged files|
+|`:Gvdiffsplit`| Toggle vertical diff from previous commit for a file|
+|`:Gvdiffsplit <branch_name>` | Toggle vertical diff from <branch_name> branch for a file|
+| `:Gvdiffsplit!` | when in file to merge|
+|`]c`| When merging to jump to next conflict |
+|`d2o`| Accept change from left window when merging |
+|`:d3o` | Accept change from right window when merging|
+ 
+# Other unsorted
+ 
+ ### Copying and pasting
+Copy paste yank outside of vim
+```
+ "*y
+ "*p
+```
+
+### Get info on line warning or error
+`gl`
+
+### Other
+| Command | Description |
+| --- | --- |
+
+buffers:
+- shift q to exit
+ 
+ :Gitsigns
+- blame_line  (see who edited line last)
+- preview_hunk (see changes on a line)
+ 
 |`,di` | Inspect Variable  |
 |`,<ENTER>`| Change value in variables|
 |`<DEL>`|Delete watch|
 
 To add variable to watch: go to watch window, go into insert mode and type the name of the variable and hit enter
-
-## Git (VimFugative)
-| Command | Description |
-| --- | --- |
-|`:G`| Open vim fugative|
-|`g?`| Help |
-|`s`| Stage file|
-|`u` | Unstage file|
-|`=` | Toggle inline diff|
-|`dv`| Toggle vertical diff, to quit dq|
-|`X`| Delete change on unstaged file|
-|`cc`| commit|
-|`:Gvdiffsplit`| vertical diff from previous commit |
-|`:Gvdiffsplit main` | vertical diff split from branch|
-| `:Gvdiffsplit!` | when in file to merge|
-|`]c`| in merge to jump to next |
-|`d2o`| accept from left window |
-|`:d3o` | accept from right window|
-| `:Gvdiffsplit!` | when in file to merge|
-
-:Gitsigns
-- blame_line  (see who edited line last)
-- preview_hunk (see changes on a line)
 
 # References
 This repository is based on a fork of: https://github.com/LunarVim/nvim-basic-ide by chris@machine

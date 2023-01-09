@@ -112,6 +112,8 @@ return packer.startup(function(use)
   -- use { 'junegunn/fzf', run = ":call fzf#install()" }
   -- use { 'junegunn/fzf.vim' }
 
+  use({"lervag/vimtex"})
+
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
