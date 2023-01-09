@@ -46,15 +46,19 @@ apt install wl-clipboard # for wayland
 pip install pynvim
 apt install ripgrep
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
 git clone https://github.com/ronniedroid/getnf.git
 cd getnf
 ./install.sh
+
+# Latex
+sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+sudo apt-get install texlive-publishers
+sudo apt-get install -y latexmk
 ```
 
 # Usage
+
+i![](/assets/img/hello.png)
 
 ## Unsorted 
 
