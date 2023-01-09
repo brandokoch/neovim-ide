@@ -69,7 +69,7 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(v
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+-- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.step_into()<cr>", opts)
 keymap("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>", opts)
 keymap("n", "<leader>dk", "<cmd>lua require'dap'.step_out()<cr>", opts)
@@ -78,6 +78,15 @@ keymap("n", "<leader>dd", "<cmd>lua require('dap.ext.vscode').load_launchjs('./l
 -- keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+function load_config_and_continue()
+	if vim.fn.filereadable('./launch.json') then
+		require('dap.ext.vscode').load_launchjs('./launch.json')
+	end
+	require('dap').continue()
+end
+
+keymap("n", "<leader>dc", "<cmd> lua load_config_and_continue() <cr>")
 
 -- Custom bkoch
 keymap("n", "<leader>w", ":w<CR>", opts)
