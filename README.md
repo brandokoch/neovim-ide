@@ -195,7 +195,8 @@ If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
 |`<CTRL>l` | Move to right window  |
 |`:resize 10`| Resize window to 10 rows |
 |`:vertical resize 10`| Resize window to 10 columns | 
-
+|`:<SHIFT>l`| Move to next (right) buffer (in my setup it looks like a tab) | 
+|`:<SHIFT>h`| Move to previous (left) buffer (in my setup it looks like a tab) | 
 
 ### Tab Operations
 | Command | Description |
