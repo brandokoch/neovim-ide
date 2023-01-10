@@ -86,7 +86,7 @@ i![](/assets/img/hello.png)
 ### Copy and paste
 In order for copied text to not be overwritten by delete commands copy to a register instead:
 - select text
-- select register "a" and yank with y: `"ay"`
+- select register "a" and yank with y: `"ay`
 - to paste select register "a" and paster with p: `"ap`
 
 ### Macros
