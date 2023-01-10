@@ -99,3 +99,4 @@ keymap("n", "<leader>i",":lua require'clipboard-image.paste'.paste_img()")
 -- Remap save and quit 
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
+keymap("n", "<leader>i",":lua require'clipboard-image.paste'.paste_img()<CR>")
