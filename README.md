@@ -89,6 +89,9 @@ In order for copied text to not be overwritten by delete commands copy to a regi
 - select register "a" and yank with y: `"ay`
 - to paste select register "a" and paster with p: `"ap`
 
+- yank whole word (cursor on it): `yaw`
+- yank whole paragrpah (cursor on it): `yap`
+
 ### Macros
 Macros feature is one of the most powerful features of Vim. It allows you to record a set of commands you do on text and apply it anywhere you want. 
 
