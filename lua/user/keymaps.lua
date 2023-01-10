@@ -69,7 +69,6 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(v
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
--- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.step_into()<cr>", opts)
 keymap("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>", opts)
 keymap("n", "<leader>dk", "<cmd>lua require'dap'.step_out()<cr>", opts)
@@ -88,9 +87,15 @@ end
 
 keymap("n", "<leader>dc", "<cmd> lua load_config_and_continue() <cr>")
 
--- Custom bkoch
+-- Markdown
+keymap("n", "<C-p>", ":MarkdownPreviewToggle<CR>", opts)
+
+-- Window maximizer (useful in debugging UI)
+keymap("n", "<leader>m",":MaximizerToggle!<CR>",opts)
+
+-- Image pasting from clipboard
+keymap("n", "<leader>i",":lua require'clipboard-image.paste'.paste_img()")
+
+-- Remap save and quit 
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
-keymap("n", "<C-p>", ":MarkdownPreviewToggle<CR>", opts)
-keymap("n", "<leader>m",":MaximizerToggle!<CR>",opts)
-keymap("n", "<leader>i",":lua require'clipboard-image.paste'.paste_img()")
