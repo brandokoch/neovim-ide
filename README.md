@@ -22,6 +22,14 @@ Disclamers:
 1. <strong>I'am by no means an expert in NeoVim or lua for that matter, this repo is a culmination of my hours of research and experience on the subject of using Vim</strong>
 2. <strong>As a Machine Learning Engineer and Researcher I might be biased in my workflow and therefore configuration so make sure to perform customizations specific to you and the programming languages you use</strong>
   
+# TODO
+" For replacing occurences visually selected text
+" Select text and press Cntrl r
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+  
+ "map ReplaceAll to S 
+nnoremap S :%s//g<Left><Left>
+  
 # Setup
 Tested on the following OS-es and environments:
 - Linux Ubuntu 18.04 and 20.04
@@ -93,6 +101,7 @@ In order for copied text to not be overwritten by delete commands copy to a regi
 - yank whole paragrpah (cursor on it): `yap`
 
 - delete word under cursor in Vim ?
+- search word under cursor: `*`
 
 ### Macros
 Macros feature is one of the most powerful features of Vim. It allows you to record a set of commands you do on text and apply it anywhere you want. 
