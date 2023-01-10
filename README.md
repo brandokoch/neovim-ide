@@ -29,6 +29,8 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
   
  "map ReplaceAll to S 
 nnoremap S :%s//g<Left><Left>
+
+delete paragraph: dap
   
 # Setup
 Tested on the following OS-es and environments:
