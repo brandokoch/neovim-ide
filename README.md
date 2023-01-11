@@ -27,8 +27,7 @@ Disclamers:
 " Select text and press Cntrl r
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
   
- "map ReplaceAll to S 
-nnoremap S :%s//g<Left><Left>
+
 
 
   
@@ -82,6 +81,13 @@ i![](/assets/img/hello.png)
 
 - search word under cursor: `*`
 
+Start search pattern and being to replace
+- Shift+s
+- start typing the word you want to replace
+- add separator `/`
+- start typing the word you want to replace with (if any)
+- confirm
+
 ### Search and replace/delete in project:
 ```
 1. `,f` to open fzf grep search
@@ -106,8 +112,9 @@ You might also want to store multiple copies of text. To tackle this you can use
   - e.g. `"ap`
 
 Operations on text around the cursor location:
-- yank whole word (cursor on it): `yaw`
-- delete whole word (cursor on it): `daw`
+- yank whole word: `yaw`
+- delete whole word: `daw`
+- change whole word: `caw`
 - yank whole paragraph (cursor on it): `yap`
 - delete whole paragraph: `dap`
 
