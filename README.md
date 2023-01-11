@@ -30,7 +30,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
  "map ReplaceAll to S 
 nnoremap S :%s//g<Left><Left>
 
-delete paragraph: dap
+
   
 # Setup
 Tested on the following OS-es and environments:
@@ -80,6 +80,8 @@ i![](/assets/img/hello.png)
 |`:%s/what/with_what/gc`| Globally (File scope) replace|
 |`:%s/what/with_what/gc`| Globally (File scope) replace and ask confirmation for each change|
 
+- search word under cursor: `*`
+
 ### Search and replace/delete in project:
 ```
 1. `,f` to open fzf grep search
@@ -90,20 +92,25 @@ i![](/assets/img/hello.png)
 ```
 
 ### Commenting
-- select text in visual mode
+- select text lines in visual mode
 - `<leader>/`
 
-### Copy and paste
-In order for copied text to not be overwritten by delete commands copy to a register instead:
+### Copy, paste, delete
+
+Copying text with yank will be overwritten with the delete commands (since they also copy).
+You might also want to store multiple copies of text. To tackle this you can use registers for copying:
 - select text
-- select register "a" and yank with y: `"ay`
-- to paste select register "a" and paster with p: `"ap`
+- select register, and yank with y: `"<register_letter>y`
+  - e.g. `"ay`
+- to paste select the register and pastee with p: `"<register_letter>p`
+  - e.g. `"ap`
 
+Operations on text around the cursor location:
 - yank whole word (cursor on it): `yaw`
-- yank whole paragrpah (cursor on it): `yap`
+- delete whole word (cursor on it): `daw`
+- yank whole paragraph (cursor on it): `yap`
+- delete whole paragraph: `dap`
 
-- delete word under cursor in Vim ?
-- search word under cursor: `*`
 
 ### Macros
 Macros feature is one of the most powerful features of Vim. It allows you to record a set of commands you do on text and apply it anywhere you want. 
