@@ -15,12 +15,13 @@ I don't like using a mouse when programming, and if you are here looking for a N
 In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even some more advanced users.
 
 ✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  
-✔️ Debugging (DAP)  ✔️ Latex editing ()  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion   
-✔️ Linting  ✔️ Git support  ✔️ View markdown
+✔️ Debugging (DAP)  ✔️ Latex editing ()  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    
+✔️ LSP ✔️ Linting  ✔️ Git support  ✔️ View markdown
 
 Disclamers:
-1. <strong>I'am by no means an expert in NeoVim or lua for that matter, this repo is a culmination of my hours of research and experience on the subject of using Vim</strong>
-2. <strong>As a Machine Learning Engineer and Researcher I might be biased in my workflow and therefore configuration so make sure to perform customizations specific to you and the programming languages you use</strong>
+1. <i>I'am by no means an expert in NeoVim or lua for that matter, this repo is a culmination of my hours of research and experience on the subject of using Vim.</i>
+2. <i>As a Machine Learning Engineer and Researcher I might be biased in my workflow and therefore configuration so make sure to perform customizations specific to you and the programming languages you use.</i>
+3. <i>Even though I am comfortable working with this configuration, there are still modifications/updates/fixes I will want to add in the near future. Look at this repository as a work in progress.</i> 
   
 # TODO
 " For replacing occurences visually selected text
@@ -334,6 +335,25 @@ Performing git operations from inside vim is done with [VimFugative](https://git
 |`d2o`| Accept change from left window when merging |
 |`:d3o` | Accept change from right window when merging|
  
+## LSP
+| Command | Description |
+| --- | --- |
+|`gD`| Go to declaration|
+|`gd`| Go to definition |
+|`K`| Buffer hover |
+|`gI` | Buffer implementation|
+|`gr` | References |
+|`gl`| On diagnostic (warning/error) line shows description|
+|`<leader>lf`| Format |
+|`<leader>li`| View LSP Info |
+|`<leader>lI`| VIew LSP install info|
+|`<leader>la`| Code action|
+|`<leader>lj`|  Go to next diagnostic|
+|`<leader>lk`| Go to previous diagnostic|
+|`<leader>lr`| Rename |
+|`<leader>ls`| Signature help|
+|`<leader>lq`| Diagnostic set location list |
+  
 # Other unsorted
  
  ### Copying and pasting
