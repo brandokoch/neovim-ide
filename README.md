@@ -29,7 +29,11 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
   
 - how to work on multiple projects
 
-
+### Workflow for working on multiple projects repositories
+- open one file from one repository 
+- open another window
+- `:e path_to_file_in_another_repo`
+- for jumping to other files inside each repo go on the file belonging to that repo and either open explorer or use fzf
 
   
 # Setup
@@ -73,6 +77,9 @@ i![](/assets/img/hello.png)
 ## Unsorted 
 
 
+### Search and replace word on cursor
+- `*`
+- `:%s//replace_with_this/g`
 
 ### Search and replace inside file
 | Command | Description |
