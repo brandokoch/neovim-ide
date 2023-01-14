@@ -19,8 +19,8 @@ I don't like using a mouse when programming, and if you are here looking for a N
 In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even some more advanced users.
 
 ✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  
-✔️ Debugging (DAP)  ✔️ Latex editing ()  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    
-✔️ LSP ✔️ Linting  ✔️ Git support  ✔️ View markdown
+✔️ Debugging (DAP)  ✔️ Latex  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    
+✔️ LSP ✔️ Linting  ✔️ Git UI  ✔️ View markdown
 
 Disclamers:
 1. <i>I'am by no means an expert in NeoVim or lua for that matter, this repo is a culmination of my hours of research and experience on the subject of using Vim.</i>
@@ -39,9 +39,11 @@ Disclamers:
 # Setup
 
 ### Choice of OS
-This configuration works best if you are on a linux based operating system such as Ubuntu/Arch. I have also tested this configuration on WSL2 Ubuntu 18.04 using the windows terminal and noticed the following problems which I am yet to solve: copying/pasting from clipboard, inserting images, icon rendering. I didn't choose to package this code in any special way in order to provide easy customization. 
+This configuration works best if you are on a linux based operating system such as Ubuntu. I have also tested this configuration on WSL2 Ubuntu 18.04 using the windows terminal but noticed the following problems which I am yet to solve: copying/pasting from clipboard, inserting images, icon rendering. 
 
 ### Ubuntu installation 
+I didn't choose to package this code in any special way in order to provide easy customization. 
+
 ```bash
 apt update
 apt-get update
@@ -75,7 +77,7 @@ sudo apt-get install -y latexmk
 I tend to use containers a lot in my workflow, especially when developing ML models as those tend to require a complicated environment. I actually often develop/debug inside a running container. In order to be able to do this using this NeoVim configuration I add the dependencies inside the Dockerfile and build the image that way. Here I provide a generic Dockerfile which would install this NeoVim configuration. 
 
 ```
-$ docker build -t image_name.
+$ docker build -t image_name. 
 
 $ docker run -t -d --name container_name image_name 
 
@@ -89,8 +91,8 @@ $ docker exec -ti container_name /bin/bash
 
 | Command | Description |
 | --- | --- |
-|i| insert before the cursor  |
-|a| append after the cursor  ||
+|i| insert before the cursor |
+|a| append after the cursor  |
 |I| insert at the beginning of the line  |
 |A| append at the end of the line  |
 |o| open a new line below the current one  |
