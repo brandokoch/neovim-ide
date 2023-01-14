@@ -86,82 +86,97 @@ $ docker exec -ti container_name /bin/bash
 
 # Usage
 
+leader, modes explain, explain tabs buffers I changed the wording for some stuff (modes )
+ if you begginer look at some video first the best
+
+insert mode is only for writing text
+normal mode is for moving and jumping 
 
 ## Vim Basics
 
-| Command | Description |
-| --- | --- |
-|i| insert before the cursor |
-|a| append after the cursor  |
-|I| insert at the beginning of the line  |
-|A| append at the end of the line  |
-|o| open a new line below the current one  |
-|O| open a new line above the current one  |
-|r| replace the one character under your cursor|
-|R| replace the character under your cursor, but just keep typing afterwards  |
-|select and Cntrl R| you will be prompted to enter text to replace with. Press enter and then confirm each change you agree with y or decline with n|
-|cm| change whatever you define as a movement (m)  |
-|C| change the current line from where you're at  |
-|ct<letter>| change up to <letter |
-|s| substitute from where you are to the next command (noun)  |
-|S| substitute the entire current line|
-|`y`| Yank what is selected with visual mode|
-|`p`| Paste yanked text after the current cursor position|
-|`P`| Paste yanked text before the current cursor position|
-|`yy` | Yank line|
-|`u`| Undo last action|
-|`<CTRL>r`| Redo last action |
-|`<CTRL>+` | Zoom in|
-|`<CTRL>-` | Zoom out|
-|`<SHIFT>s`| Construct Find and replace expression|
-|`:set spell spelllang=en_us`| Spell check strings |
-|`:set nospell`| Disable spell check|
-|`/<search_text>`| Search for search_term in file|
+### Modes
+| Prerequisite | Command | Description |
+|--- | --- | --- |
+|Normal mode |`i`| Most basic way to enter insert mode at cursor position |
+|Insert mode |`jj`| Escape from insert mode to normal mode|
+|Normal mode |`<SHIFT>v`| Enter visual mode  |
+|Normal mode |`<SHIFT>v`| Enter visual line mode  |
+|Normal mode |`<CTRL>v`| Enter visual block mode  |
+|Visual mode |`<ESC>`| Escape from any visual or command to normal mode |
+|Normal mode |`:` | Enter command mode |
+|Terminal mode |`<CTRL>\` | Toggle terminal (Toggleterm plugin) mode |
+
+Different ways to enter insert mode EIM (enter insert mode)
+
+| prerequisite | command | description |
+|--- | --- | --- |
+|normal mode |`<shift>i`| EIM at the beginning of the line  |
+|normal mode |`a`| EIM after the cursor  |
+|Normal mode |`<SHIFT>a`| EIM at the end of the line  |
+|Normal mode |`o`| EIM on a new line below the current one  |
+|Normal mode |`O`| EIM on a new line above the current one  |
+|Normal mode |`r`| replace the one character under your cursor|
+|Normal mode |`R`| start replacing under cursor  |
+|Normal mode |`c<m>`| change you define as a movement (m)  |
+|Normal mode |`ct<char>`| change up to <char> |
+|Normal mode |`cf<char>`| change up to <char> |
+|Normal mode |`C`| change the current line from where you're at  |
+|Visual mode |`y`| Yank what is selected with any visual mode|
+|Normal mode |`p`| Paste yanked text after the current cursor position|
+|Normal mode |`P`| Paste yanked text before the current cursor position|
+|Normal mode |`yy` | Yank line|
+|Normal mode |`u`| Undo last action|
+|Normal mode |`<CTRL>r`| Redo last action |
+|Normal mode |`<CTRL>+` | Zoom in|
+|Normal mode |`<CTRL>-` | Zoom out|
+|Normal mode |`<SHIFT>s`| Construct Find and replace expression|
 
 
 ### File Operations  
 | Command | Description |
 | --- | --- |
-|`,w` | Write (save) file  |
-|`,q` | Quit file (must be saved beforehand |
+|`<leader>w` | Write (save) file  |
+|`<leader>q` | Quit file (must be saved beforehand |
+|`:q!` | Froce quit file without saving |
 |`:sort` | sort file  |
 |`:e <file_path>`| Edit (open) file |
-|`e src/**/<file_name>`| Fuzzy find and open file |
+|`e path/**/<file_name>`| Fuzzy find and open file |
 
 ### Navigation (Files, Windows, Text, Tabs)
 
 #### Text Movements
+Vertical text movement
+
 | Command | Description |
 | --- | --- |
 |`G`| Go to bottom of file|
 |`gg`| Go to top of file|
+|`<CTRL>u` | Move whole screen up|
+|`<CTRL>d` | Move whole screen down|
+|`<CTRL>i`| Based on jump list jump forward |
+|`<CTRL>o`| Based on jump list jump backward|
+
+
+Horizontal text movement
+
+| Command | Description |
+| --- | --- |
 |`0`| Move to beggining of line|
 |`$`| Move to the end of the line|
 |`w`| Move forward one word|
 |`b`| Move backward one word|
 |`e`| Move to the end of the current word|
-|`<CTRL>i`| Jump to previous navigation location |
-|`<CTRL>o`| Jump back to where you were |
-|`jj`| Exit normal mode |
-|`f<`| Jump and land on the < charachter |
-|`t<`| Jump and land before the < charachter |
+|`f<char>`| Jump and land on the <char> charachter |
+|`t<char>`| Jump and land before the <char> charachter |
 |`%`| Move to matching bracket when on one|
-|`zz `| Recenter view so the current line is in middle|
-|`gd` | Go to definition| 
-|`<SHIFT>i` | Go into insert mode at the beggining of the line|
-|`<SHIFT>a` | Go into insert mode at the end of the line (append)|
-|`<CTRL>u` | Move whole screen up|
-|`<CTRL>d` | Move whole screen down|
-
 
 #### Window Operations  
 | Command | Description |
 | --- | --- |
 |`:sp`| Split Horizontally |
-|`:50sp`| Split Horizontally with size 50 |
+|`:40sp`| Split Horizontally with size 50 |
 |`:vs`| Split Verically |
-|`:50vs`| Split Verically with size 50 |
-|`<CTRL>wn`| Open new window |
+|`:40vs`| Split Verically with size 50 |
 |`<CTRL>j` | Move to below window  |
 |`<CTRL>k` | Move to above window  | 
 |`<CTRL>h` | Move to left window  |
@@ -172,6 +187,8 @@ $ docker exec -ti container_name /bin/bash
 |`:<SHIFT>h`| Move to previous (left) buffer (in my setup it looks like a tab) | 
 
 #### Tab Operations
+I rarely use tab operations and they don't cooperate much with this setup but I included them for completeness
+
 | Command | Description |
 | --- | --- |
 |`:tabedit path` | Open file in a new tab  |
@@ -192,6 +209,7 @@ $ docker exec -ti container_name /bin/bash
 
 ## Search and replace 
   
+| |`/<search_text>`| Search for search_term in file|
 ### Search and replace word on cursor
 - `*`
 - `:%s//replace_with_this/g`
@@ -383,9 +401,17 @@ Copy paste yank outside of vim
 | Command | Description |
 | --- | --- |
 
+make cursor faster
+
+vimum
+
+| |`:set spell spelllang=en_us`| Spell check strings |
+| |`:set nospell`| Disable spell check|
+
 # TODO
 how to find help
 
+|`zz `| Recenter view so the current line is in middle (my default setting is that cursor is always in the middle so this might not be relevant)|
 " For replacing occurences visually selected text
 " Select text and press Cntrl r
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
