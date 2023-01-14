@@ -75,7 +75,11 @@ sudo apt-get install -y latexmk
 I tend to use containers a lot in my workflow, especially when developing ML models as those tend to require a complicated environment. I actually often develop/debug inside a running container. In order to be able to do this using this NeoVim configuration I add the dependencies inside the Dockerfile and build the image that way. Here I provide a generic Dockerfile which would install this NeoVim configuration. 
 
 ```
-test 
+$ docker build -t image_name.
+
+$ docker run -t -d --name container_name image_name 
+
+$ docker exec -ti container_name /bin/bash
 ```
 
 # Usage
