@@ -109,6 +109,14 @@ Different ways to enter insert mode (EIM). Change is another way of saying delet
 |Normal mode |`caw`| change cursor word |
 |Normal mode |`cap`| change paragraph |
 
+Multi-line writing:
+1. Enter visual block mode and span multiple lines
+2. To enter insert mode on multiple lines: `<SHIFT>i`
+3. Start writing
+4. Use `<ESC>` to finish
+
+
+
 ### Copy, Delete, Paste, Replace
 Some tips for using the below commands:
 - Yank is the vim naming for copy
