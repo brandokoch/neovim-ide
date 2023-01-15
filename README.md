@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/57716666/212529883-2ce9e06b-80ce-4cd2-
 # About
 I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried a 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. 
 
-In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even some more advanced users.
+In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even more advanced users.
 
 ✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  
 ✔️ Debugging (DAP)  ✔️ Latex  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    
@@ -74,13 +74,7 @@ $ docker exec -ti container_name /bin/bash
 
 # Usage
 
-leader, modes explain, explain tabs buffers I changed the wording for some stuff (modes )
- if you begginer look at some video first the best
-
- explain y,c,d
-
-insert mode is only for writing text
-normal mode is for moving and jumping 
+In the following sections I explain keymaps I use the most for NeoVim. You will often see `<leader>` mentioned. Leader is used to start a lot of custom commands and can be set to any button press, in my case it is commma `,` (be sure to customize this to your liking in `keymaps.lua`). If you are a total begginer in Vim I would advise you to first watch an intro Vim video on YouTube, since in that case these keymaps might not make sense to you. Learn basic `j k h l` movements, operations (i,y,d,...), Vim modes and file operation. For Intermediate-Advanced users I think the way I wrote the documentation will make perfect sense and you will be able to quickly search this README for any action you want to do. In some description sections I changed the wording to my liking, which is in contrast to the official documentation, on purpose. For any other mistakes on my part I would appreciate any feedback and suggestions. If there is something not covered below that you would like me to add I am open to is as well.
 
 ## Vim Basics
 
@@ -165,7 +159,6 @@ Some tips for using the below commands:
 |`<CTRL>d` | Move whole screen down|
 |`<CTRL>i`| Based on jump list jump forward |
 |`<CTRL>o`| Based on jump list jump backward|
-
 
 #### Horizontal text movement
 
@@ -253,7 +246,7 @@ While in the search mode you can:
 You can make the pattern use the last term you searched for (e.g. word under cursor with `*`) by leaving the first part (<text_to_replace>) blank 
 
 #### Search and replace/delete in project:
-1. `,f` to open fzf grep search (see Fzf section)
+1. `<leader>f` to open fzf grep search (see Fzf section)
 2. Type patterns 
 3. `<CTRL><SHIFT>` to add individual files or `<ALT>a` to select all matches entries #TODO CHECK
 4. `<ENTER>` to add to quickfix list
@@ -304,9 +297,9 @@ Toggle it with: `<CTRL>\`
 My favorite vim plugin, Fzf, allows you to live search files and text recursively inside the working directory with blazing speed. Preview of each match is also shown which makes searching for the right match easy. I recommend using this plugin to quickly jump to files rather than using a file explorer or typing a file path manually.
 
 Depending on the use-case, use one of the below commands to open Fzf:
-- Search files by matching their file name/path: `,p`
-- Search text while matching only the text: `,f`
-- Search text while matching both the text and path: `,v`
+- Search files by matching their file name/path: `<leader>p`
+- Search text while matching only the text: `<leader>f`
+- Search text while matching both the text and path: `<leader>v`
 
 Navigation:
 - Once inside Fzf you can navigate over matches with `<CTRL>j` or `<CTRL>K`. 
@@ -321,7 +314,7 @@ Fzf can be also used to populate a quickfix list (list of matches) which you can
  
 | Command | Description |
 | --- | --- |
-|`,e` | Open/Clone the file tree| 
+|`<leader>e` | Open/Clone the file tree| 
 |`j` | Move down| 
 |`k` | Move up| 
 |`h` | Collapse directory| 
@@ -356,7 +349,7 @@ dap.adapters.python = {
 
 **Create launch.json inside the working directory of the project:**
 - For `pythonPath` add your python path (can be e.g. from a conda env)
-- When you start debugging the `,dc` command will try to load this configuration automatically
+- When you start debugging the `<leader>dd` command will try to load this configuration automatically
 
 ```
 {
@@ -375,18 +368,18 @@ dap.adapters.python = {
  
  
 ### How to debug
-To debug, open the file and create a breakpoint. Then, start the debugger with `,dc`
+To debug, open the file and create a breakpoint. Then, start the debugger with `<leader>dd`
 
 | Command | Description |
 | --- | --- |
-|`,dc` | Start Debugger / Continue (Will also try to load the launch.json config from cwd) |
-|`,dt` | Terminate Debugger  |
-|`,db` | Toggle Breakpoint  |
-|`,dj` | Step over  |
-|`,dl` | Step into  |
-|`,dk` | Step out  |
-|`,dc` | Run to cursor|
-|`,dv` | View value of cursor variable|
+|`<leader>dd` | Start Debugger / Continue (Will also try to load the launch.json config from cwd) |
+|`<leader>dt` | Terminate Debugger  |
+|`<leader>db` | Toggle Breakpoint  |
+|`<leader>dj` | Step over  |
+|`<leader>dl` | Step into  |
+|`<leader>dk` | Step out  |
+|`<leader>dc` | Run to cursor|
+|`<leader>dv` | View value of cursor variable|
  
 
 ## Git (VimFugative)
