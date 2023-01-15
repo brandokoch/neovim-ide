@@ -18,10 +18,10 @@ https://user-images.githubusercontent.com/57716666/212529883-2ce9e06b-80ce-4cd2-
 # About
 I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried a 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. 
 
-In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even more advanced users.
+In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even more advanced users. This is just something I wish I had when starting with Vim.
 
 ✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  
-✔️ Debugging (DAP)  ✔️ Latex  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    
+✔️ Debugging (DAP)  ✔️ Latex support  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    
 ✔️ LSP ✔️ Linting  ✔️ Git UI  ✔️ View markdown
 
 Disclamers:
@@ -74,7 +74,7 @@ $ docker exec -ti container_name /bin/bash
 
 # Usage
 
-In the following sections I explain keymaps I use the most for NeoVim. You will often see `<leader>` mentioned. Leader is used to start a lot of custom commands and can be set to any button press, in my case it is a comma `,` (be sure to customize this to your liking in `keymaps.lua`). If you are a total begginer in Vim I would advise you to first watch an intro Vim video on YouTube, since in that case these keymaps might not make sense to you. Learn basic `j k h l` movements, operations (`i,y,d,...`), Vim modes and file operations. For Intermediate-Advanced users I think the way I wrote the documentation will make perfect sense and you will be able to quickly search this README for any action you want to do. In some description sections I changed the wording to my liking, which is in contrast to the official documentation, on purpose. For any other mistakes on my part I would appreciate any feedback and suggestions. If there is something not covered below that you would like me to add I am open to is as well.
+In the following sections I explain keymaps I use the most for NeoVim. You will often see `<leader>` mentioned. Leader is used to start a lot of custom commands and can be set to any button press, in my case it is a comma `,` (be sure to customize this to your liking in `keymaps.lua`). If you are a total begginer in Vim I would advise you to first watch an intro Vim video on YouTube, since in that case these keymaps might not make sense to you. Learn basic `j k h l` movements, operations (`i,y,d,...`), Vim modes, using `:help`, and file operations. For Intermediate-Advanced users I think the way I wrote the documentation will make perfect sense and you will be able to quickly search this README for any action you want to do. This documentation is not meant to replace the official docs but rather to offer a summary of most used commands. In some description sections I changed the wording to my liking, which is in contrast to the official documentation, on purpose. For any other mistakes on my part I would appreciate any feedback and suggestions. If there is something not covered below that you would like me to add I am open to is as well.
 
 ## Vim Basics
 
@@ -282,10 +282,6 @@ Macros feature is one of the most powerful features of Vim. It allows you to rec
 1. Select lines with visual mode
 2. Do `:normal @<register>`
 
-- https://stackoverflow.com/questions/390174/in-vim-how-do-i-apply-a-macro-to-a-set-of-lines
-- https://vim.fandom.com/wiki/Delete_all_lines_containing_a_pattern
-If you want to delete that line instead do `:cfdo g/to_replace/d | :w`
-
 ### Other
 | Command | Description |
 | --- | --- |
@@ -336,8 +332,10 @@ Fzf can be also used to populate a quickfix list (list of matches) which you can
 Debugging is done with [dap](https://github.com/mfussenegger/nvim-dap). DAP is a Debug Adapter Protocol client implementation for Neovim. 
 
 To debug applications, you need to configure two things per language:
-- A debug adapter [Adapter Installation](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation)
-- A debug configuration (How to launch your application to debug or how to attach to a running application)
+- A debug adapter ([Adapter Installation](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation))
+- A debug configuration ([Debug Configuration](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation)) 
+  - It describes how to launch your application for debugging or how to attach to a running application.
+  - For this I like creating a `launch.json` file. If you have it in the cwd, Vim will try to load it when you start debugging.
 
 ### Configuring the adapter and the configuration (Python)
 Here I showcase how to install everything needed for debugging python.
@@ -443,8 +441,10 @@ LSP
 - If you want to expand your mouseless setup take a look at [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en). 
 - Depending on your OS you might also explore using a window manager.
 - In order to move faster in vim with `j k h l` increase your cursor speed inside your OS.
+- Copy/Pasting from/to system clipboard can sometimes be problematic, try using `<CTRL><SHIFT>c` and `<CTRL><SHIFT>v`
 
 # To-Do
+- [ ] Explain latex support
 - [ ] Zathura for latex support 
 - [ ] Github Copilot 
 - [ ] ChatGPT Prompt Window
