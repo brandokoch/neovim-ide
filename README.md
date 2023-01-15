@@ -1,6 +1,8 @@
 # Neovim config 
 This repository presents a NeoVim config that I use day-to-day, based on a fork of [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 
+https://user-images.githubusercontent.com/57716666/212529883-2ce9e06b-80ce-4cd2-894e-de4377115c56.mp4
+
 ## Table of Contents
 * [About](#about)
 * [Setup](#setup)
@@ -11,6 +13,7 @@ This repository presents a NeoVim config that I use day-to-day, based on a fork 
   * [Tips](#tips)
 * [License](#license)
 * [References](#references)
+
 
 # About
 I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried a 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. 
@@ -437,19 +440,14 @@ LSP
 
 # Tips
 - If you want to expand your mouseless setup take a look at [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en). 
-- In order to move faster in vim with `j k h l` increase your OS cursor speed
-
+- Depending on your OS you might also explore using a window manager.
+- In order to move faster in vim with `j k h l` increase your cursor speed inside your OS.
 
 # To-Do
-- [] Zathura for latex support 
-- [] Github Copilot 
-- [] ChatGPT Prompt Window
-- [] Explain markdown support
-
-" For replacing occurences visually selected text
-" Select text and press Cntrl r
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-
+- [ ] Zathura for latex support 
+- [ ] Github Copilot 
+- [ ] ChatGPT Prompt Window
+- [ ] Explain markdown support
   
 # References
 - [1]: This repository is based on a fork of: https://github.com/LunarVim/nvim-basic-ide by chris@machine
