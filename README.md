@@ -1,5 +1,5 @@
 # Neovim config 
-This repository presents a NeoVim config that I use day-to-day, based on a fork of [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
+This repository presents a NeoVim config that I use day-to-day, based on a fork of [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide). Along with the config itself I provide detailed documentation on both Vim basics and keymaps related to this particular config.
 
 https://user-images.githubusercontent.com/57716666/212529883-2ce9e06b-80ce-4cd2-894e-de4377115c56.mp4
 
@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/57716666/212529883-2ce9e06b-80ce-4cd2-
 * [About](#about)
 * [Setup](#setup)
 * [Usage](#usage)
-  * [Vim Basics](#vim)
+  * [Vim Basics](#vim-basics)
   * [Vim Advanced](#vim-advanced)
   * [Plugins](#plugins)
   * [Tips](#tips)
@@ -74,7 +74,7 @@ $ docker exec -ti container_name /bin/bash
 
 # Usage
 
-In the following sections I explain keymaps I use the most for NeoVim. You will often see `<leader>` mentioned. Leader is used to start a lot of custom commands and can be set to any button press, in my case it is commma `,` (be sure to customize this to your liking in `keymaps.lua`). If you are a total begginer in Vim I would advise you to first watch an intro Vim video on YouTube, since in that case these keymaps might not make sense to you. Learn basic `j k h l` movements, operations (i,y,d,...), Vim modes and file operation. For Intermediate-Advanced users I think the way I wrote the documentation will make perfect sense and you will be able to quickly search this README for any action you want to do. In some description sections I changed the wording to my liking, which is in contrast to the official documentation, on purpose. For any other mistakes on my part I would appreciate any feedback and suggestions. If there is something not covered below that you would like me to add I am open to is as well.
+In the following sections I explain keymaps I use the most for NeoVim. You will often see `<leader>` mentioned. Leader is used to start a lot of custom commands and can be set to any button press, in my case it is a comma `,` (be sure to customize this to your liking in `keymaps.lua`). If you are a total begginer in Vim I would advise you to first watch an intro Vim video on YouTube, since in that case these keymaps might not make sense to you. Learn basic `j k h l` movements, operations (`i,y,d,...`), Vim modes and file operations. For Intermediate-Advanced users I think the way I wrote the documentation will make perfect sense and you will be able to quickly search this README for any action you want to do. In some description sections I changed the wording to my liking, which is in contrast to the official documentation, on purpose. For any other mistakes on my part I would appreciate any feedback and suggestions. If there is something not covered below that you would like me to add I am open to is as well.
 
 ## Vim Basics
 
@@ -86,7 +86,7 @@ In the following sections I explain keymaps I use the most for NeoVim. You will 
 |Normal mode |`<SHIFT>v`| Enter visual mode  |
 |Normal mode |`<SHIFT>v`| Enter visual line mode  |
 |Normal mode |`<CTRL>v`| Enter visual block mode  |
-|Visual mode |`<ESC>`| Escape from any visual or command to normal mode |
+|Visual mode |`<ESC>`| Escape from any visual or command mode to normal mode |
 |Normal mode |`:` | Enter command mode |
 |Terminal mode |`<CTRL>\` | Toggle terminal (Toggleterm plugin) mode |
 
@@ -95,7 +95,7 @@ Different ways to enter insert mode (EIM). Change is another way of saying delet
 
 | Prerequisite | Command | Description |
 |--- | --- | --- |
-|Normal mode |`i`| Most basic way to enter insert mode at cursor position |
+|Normal mode |`i`| Most basic way to EIM at cursor position |
 |Normal mode |`<shift>i`| EIM at the beginning of the line  |
 |Normal mode |`a`| EIM after the cursor  |
 |Normal mode |`<SHIFT>a`| EIM at the end of the line  |
@@ -114,8 +114,8 @@ Some tips for using the below commands:
 - Yank is the vim naming for copy
 - Delete also performs a copy (what is deleted is ready to be pasted with `p`)
 
-| Command | Description |
-| --- | --- |
+|Prerequisite| Command | Description |
+| --- | --- | --- |
 |Visual mode |`y`| Yank what is selected with any visual mode|
 |Normal mode |`yy` | Yank line|
 |Normal mode |`<SHIFT>y` | Yank line from cursor|
