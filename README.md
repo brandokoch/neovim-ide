@@ -440,19 +440,15 @@ LSP
 
 # Tips
 - If you want to expand your mouseless setup take a look at [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en). 
-- In order to move faster in vim with `j k h l` increase your OS cursor speed
+- Depending on your OS you might also explore using a window manager.
+- In order to move faster in vim with `j k h l` increase your cursor speed inside your OS.
 
 
 # To-Do
-- [] Zathura for latex support 
-- [] Github Copilot 
-- [] ChatGPT Prompt Window
-- [] Explain markdown support
-
-" For replacing occurences visually selected text
-" Select text and press Cntrl r
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-
+- [ ] Zathura for latex support 
+- [ ] Github Copilot 
+- [ ] ChatGPT Prompt Window
+- [ ] Explain markdown support
   
 # References
 - [1]: This repository is based on a fork of: https://github.com/LunarVim/nvim-basic-ide by chris@machine
