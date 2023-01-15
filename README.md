@@ -1,6 +1,8 @@
 # Neovim config 
 This repository presents a NeoVim config that I use day-to-day, based on a fork of [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)
 
+https://user-images.githubusercontent.com/57716666/212529326-2f6c9e65-a001-4e21-b12f-fa565b7d7c5f.mp4
+
 ## Table of Contents
 * [About](#about)
 * [Setup](#setup)
@@ -11,6 +13,7 @@ This repository presents a NeoVim config that I use day-to-day, based on a fork 
   * [Tips](#tips)
 * [License](#license)
 * [References](#references)
+
 
 # About
 I don't like using a mouse when programming, and if you are here looking for a NeoVim config I assume you don't either. Switching between a mouse and a keyboard is using time that can be spent elsewhere. This might sound like an overstatement but once I tried a 'mouseless' text editor, such as Vim, I started to enjoy the uninterrupted typing experience. A downside of these text editors is that they have a steep learning curve and even when you overcome it you are left with an editor that still misses a lot of functionality of flagship IDEs like VSCode. 
