@@ -16,7 +16,32 @@ end
 dap_install.setup({})
 
 dap_install.config("python", {})
+
+
 -- add other configs here
+dap.adapters.python = {
+  type = 'executable';
+  command = '/home/bkoch/.local/share/nvim/mason/bin/debugpy-adapter' -- Path to adapter you installed, either mason one or pip one inside your env
+  -- args = { '-m', 'debugpy.adapter' };
+}
+
+-- To load from launch.json (e.g. python )
+-- create file launch.json with:
+--   {
+--       "version": "0.2.0",
+--       "configurations": [
+--           {
+--               "type": "python",
+--               "request": "launch",
+--               "name": "Launch file",
+--               "program": "${file}",
+--               "pythonPath":"/home/user/anaconda3/envs/env_name/bin/python3"
+--           }
+--       ]
+--   }
+-- and then:
+-- :lua require('dap.ext.vscode').load_launchjs('./launch.json')
+
 
 dapui.setup({
 	expand_lines = true,
@@ -33,10 +58,10 @@ dapui.setup({
 	layouts = {
 		{
 			elements = {
-				{ id = "scopes", size = 0.33 },
+				{ id = "scopes", size = 0.25 },
 				{ id = "breakpoints", size = 0.17 },
 				{ id = "stacks", size = 0.25 },
-				{ id = "watches", size = 0.25 },
+				{ id = "watches", size = 0.33 },
 			},
 			size = 0.33,
 			position = "right",

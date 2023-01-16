@@ -22,6 +22,16 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Remap save and quit 
+keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader>q", ":q<CR>", opts)
+keymap("n", "<leader>i",":lua require'clipboard-image.paste'.paste_img()<CR>")
+
+-- Replace operations
+keymap("n", "<S-s>", ":%s//g<left><left>", opts) -- Start replace pattern
+-- keymap("n", "<C-r", "")
+
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -69,16 +79,31 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(v
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<leader>dk", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.run_to_cursor()<cr>", opts)
+keymap("n", "<leader>dv", "<cmd>lua require'dap.ui.widgets'.hover()<cr>", opts)
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<leader>da", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- Custom bkoch
-keymap("n", "<leader>w", ":w<CR>", opts)
-keymap("n", "<leader>q", ":q<CR>", opts)
+function load_config_and_continue()
+	if vim.fn.filereadable('./launch.json') then
+		require('dap.ext.vscode').load_launchjs('./launch.json')
+	end
+	require('dap').continue()
+end
+
+keymap("n", "<leader>dd", "<cmd> lua load_config_and_continue() <cr>")
+
+-- Markdown
 keymap("n", "<C-p>", ":MarkdownPreviewToggle<CR>", opts)
+
+-- Window maximizer (useful in debugging UI)
+keymap("n", "<leader>m",":MaximizerToggle!<CR>",opts)
+
+-- Image pasting from clipboard
+keymap("n", "<leader>i",":lua require'clipboard-image.paste'.paste_img()")
+

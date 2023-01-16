@@ -101,13 +101,15 @@ return packer.startup(function(use)
   -- 
   -- bkoch Custom
   --
+  
+  use { 'lervag/vimtex'}
+
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
 
-  use { 'junegunn/fzf', run = ":call fzf#install()" }
-  use { 'junegunn/fzf.vim' }
+  use({"lervag/vimtex"})
 
   use({
     "iamcco/markdown-preview.nvim",
@@ -117,6 +119,8 @@ return packer.startup(function(use)
   
   use {'tpope/vim-fugitive'}
   use {'sheerun/vim-polyglot'} -- coloring
+
+  use {'szw/vim-maximizer'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
