@@ -54,7 +54,7 @@ sudo make install
 # Custom config installation
 git clone https://github.com/bkoch4142/neovim-custom ~/.config/nvim
 
-# Icon support (getnf)
+# Nerdfont installation support (getnf)
 git clone https://github.com/ronniedroid/getnf.git
 cd getnf
 ./install.sh
