@@ -23,7 +23,7 @@ RUN make install
 
 # Install custom configuration 
 WORKDIR /root
-RUN git clone https://github.com/bkoch4142/neovim-custom ~/.config/nvim
+RUN git clone https://github.com/brandokoch/neovim-ide ~/.config/nvim
 
 RUN apt install -y xsel wl-clipboard ripgrep python3-pip npm
 RUN pip install pynvim
