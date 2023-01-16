@@ -37,27 +37,29 @@ This configuration works best if you are on a linux based operating system such 
 I didn't choose to package this code in any special way in order to provide easy customization. 
 
 ```bash
+# Prerequisites
 apt update
 apt-get update
-
 apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+apt install xsel wl-clipboard ripgrep
+pip install pynvim
 
+# Neovim Installation
 git clone https://github.com/neovim/neovim.git
 cd neovim
 git checkout release-0.8
 make CMAKE_BUILD_TYPE=Release
 sudo make install
 
+# Custom config installation
 git clone https://github.com/bkoch4142/neovim-custom ~/.config/nvim
 
-apt install xsel wl-clipboard ripgrep
-pip install pynvim
-
+# Icon support (getnf)
 git clone https://github.com/ronniedroid/getnf.git
 cd getnf
 ./install.sh
 
-# Latex
+# Latex support
 sudo apt-get install latexmk texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra texlive-publishers latexmk
 ```
 
