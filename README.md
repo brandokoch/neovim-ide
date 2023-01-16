@@ -20,9 +20,8 @@ I don't like using a mouse when programming, and if you are here looking for a N
 
 In this repository I am trying to solve the aforementioned problems by providing a NeoVim configuration that is **lightweight**, **easy to install**, **easy to understand and customize** and has a detailed **documentation for 99% of commands I use day-to-day**. This repository is based on a fork of https://github.com/LunarVim/nvim-basic-ide by chris@machine who has done most of the lua code skeleton. What I offer here is my customization with detailed documentation that I hope will prove useful for Vim/Neovim beginners and even more advanced users. This is just something I wish I had when starting with Vim.
 
-✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  
-✔️ Debugging (DAP)  ✔️ Latex support  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    
-✔️ LSP ✔️ Linting  ✔️ Git UI  ✔️ View markdown
+✔️ Detailed documentation  ✔️ VSCode look  ✔️ File Explorer (NvimTree)  ✔️ Integrated terminal  (ToggleTerm)  ✔️ Debugging (DAP)  
+✔️ Latex support  ✔️ Grep and fuzzy search (FZF, RipGrep)  ✔️ Auto-Completion    ✔️ LSP ✔️ Linting  ✔️ Git UI  ✔️ View markdown
 
 Disclamers:
 1. <i>I'am by no means an expert in NeoVim or lua for that matter, this repo is a culmination of my hours of research and experience on the subject of using Vim.</i>
@@ -255,8 +254,8 @@ You can make the pattern use the last term you searched for (e.g. word under cur
 
 #### Search and replace/delete in project:
 1. `<leader>f` to open fzf grep search (see Fzf section)
-2. Type patterns 
-3. `<CTRL><SHIFT>` to add individual files or `<ALT>a` to select all matches entries #TODO CHECK
+2. Type pattern 
+3. `<ALT>a` to select all matches 
 4. `<ENTER>` to add to quickfix list
 5. `:cfdo %s/foo/bar/g | :w` to replace or `:cfdo g/to_replace/d | :w` to delete 
 
@@ -449,6 +448,7 @@ LSP
 - [ ] Github Copilot 
 - [ ] ChatGPT Prompt Window
 - [ ] Explain markdown support
+- [ ] Fzf selecting individual matches
   
 # References
 - [1]: This repository is based on a fork of: https://github.com/LunarVim/nvim-basic-ide by chris@machine
