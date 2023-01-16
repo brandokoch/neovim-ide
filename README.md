@@ -451,6 +451,7 @@ LSP
 - [ ] ChatGPT Prompt Window
 - [ ] Explain markdown support
 - [ ] Fzf selecting individual matches
+- [ ] PDF/Word grep/search support
   
 # References
 - [1]: This repository is based on a fork of: https://github.com/LunarVim/nvim-basic-ide by chris@machine
