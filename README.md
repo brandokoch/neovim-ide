@@ -52,7 +52,7 @@ make CMAKE_BUILD_TYPE=Release
 sudo make install
 
 # Custom config installation
-git clone https://github.com/bkoch4142/neovim-custom ~/.config/nvim
+git clone https://github.com/brandokoch/neovim-ide ~/.config/nvim
 
 # Nerdfont installation support (getnf)
 git clone https://github.com/ronniedroid/getnf.git
