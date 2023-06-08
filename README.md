@@ -367,6 +367,7 @@ dap.adapters.python = {
             "request": "launch",
             "name": "Launch file",
             "program": "${file}",
+            "justMyCode": false,
             "pythonPath":"/eg_path_to_python/anaconda3/envs/env_name/bin/python3"
         }
     ]
