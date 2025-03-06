@@ -3,14 +3,13 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
+
 --Remap space as leader key
 keymap("", ",", "<Nop>", opts)
 vim.g.mapleader = ","
 
 -- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
+--   normal_mode = "n", insert_mode = "i", visual_mode = "v",
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
@@ -67,8 +66,9 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Fzf and RipGrep
 keymap("n", "<leader>p", ":FzfLua files<CR>", opts) -- Searches files while matching path
-keymap("n", "<leader>f", ":FzfLua grep_project<CR>", opts) -- Searches text while matching text
+keymap("n", "<leader>f", ":FzfLua grep_project --hidden<CR>", opts) -- Searches text while matching text
 keymap("n", "<leader>v", ":FzfLua grep_visual<CR>", opts) -- Searches text while matching path and text
+keymap("n", "<leader>a", ":lua require'fzf-lua'.fzf_exec('rga .', {prompt = 'RGA> ', actions = { ['default'] = require'fzf-lua'.actions.file_edit}})<CR>")
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -106,4 +106,3 @@ keymap("n", "<leader>m",":MaximizerToggle!<CR>",opts)
 
 -- Image pasting from clipboard
 keymap("n", "<leader>i",":lua require'clipboard-image.paste'.paste_img()")
-

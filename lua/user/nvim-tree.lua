@@ -13,7 +13,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup {
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = true,  -- if you want not to change dirs set to false
   },
   renderer = {
     root_folder_modifier = ":t",
@@ -42,6 +42,13 @@ nvim_tree.setup {
         },
       },
     },
+  },
+  git = {
+    enable = true,
+    ignore = false,
+    show_on_dirs = true,
+    show_on_open_dirs = true,
+    timeout = 200,
   },
   diagnostics = {
     enable = true,
