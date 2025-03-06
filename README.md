@@ -459,6 +459,19 @@ LSP
 - [3]: Neovim from scratch with Lua tutorial series: https://youtu.be/ctH-a-1eUME
 - [4]: Very useful youtube channel for vim: https://www.youtube.com/@ThePrimeagen
 - [5]: VimFugative tutorial: https://youtu.be/uUrKrYCAl1Y
+
+# Other
+
+## Checking health 
+`:checkhealth`
+
+## Copilot setup
+- install nodejs (ubuntu)
+```
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+```
+- `Copilot setup`
  
 
 # License
