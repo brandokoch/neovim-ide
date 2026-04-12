@@ -1,4 +1,4 @@
-# Neovim config 
+# Neovim Config 
 This repository presents a NeoVim config that I use day-to-day, based on a fork of [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide). Along with the config itself I provide detailed documentation on both Vim basics and keymaps related to this particular config.
 
 https://user-images.githubusercontent.com/57716666/212529883-2ce9e06b-80ce-4cd2-894e-de4377115c56.mp4
