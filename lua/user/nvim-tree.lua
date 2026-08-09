@@ -3,20 +3,32 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
+-- Mappings are set per-buffer via on_attach now; view.mappings and
+-- nvim-tree.config.nvim_tree_callback were both removed upstream.
+local function on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.map.on_attach.default(bufnr)
+
+  vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "<CR>", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "o", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close Directory")
+  vim.keymap.set("n", "v", api.node.open.vertical, opts "Open: Vertical Split")
 end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
 nvim_tree.setup {
+  on_attach = on_attach,
   update_focused_file = {
     enable = true,
-    update_cwd = true,  -- if you want not to change dirs set to false
+    update_root = true, -- was update_cwd; set false if you do not want dirs changed
   },
   renderer = {
-    root_folder_modifier = ":t",
+    root_folder_label = ":t",
     icons = {
       glyphs = {
         default = "",
@@ -32,7 +44,7 @@ nvim_tree.setup {
           symlink_open = "",
         },
         git = {
-          unstaged = "",
+          unstaged = "✗",
           staged = "S",
           unmerged = "",
           renamed = "➜",
@@ -43,18 +55,20 @@ nvim_tree.setup {
       },
     },
   },
+  filters = {
+    git_ignored = false, -- was git.ignore = false
+  },
   git = {
     enable = true,
-    ignore = false,
     show_on_dirs = true,
     show_on_open_dirs = true,
-    timeout = 200,
+    timeout = 400,
   },
   diagnostics = {
     enable = true,
     show_on_dirs = true,
     icons = {
-      hint = "",
+      hint = "",
       info = "",
       warning = "",
       error = "",
@@ -63,12 +77,5 @@ nvim_tree.setup {
   view = {
     width = 30,
     side = "left",
-    mappings = {
-      list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "v", cb = tree_cb "vsplit" },
-      },
-    },
   },
 }

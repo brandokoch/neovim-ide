@@ -13,7 +13,10 @@ bufferline.setup {
 
   highlights = {
     fill = {
-      fg = { attribute = "fg", highlight = "#ff0000" },
+      -- Was highlight = "#ff0000", which is a colour, not a highlight group.
+      -- Current bufferline validates the name and "#" is illegal, giving
+      -- E5248 on startup. For a literal colour use fg = "#ff0000" instead.
+      fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
 

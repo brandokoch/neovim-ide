@@ -5,6 +5,44 @@ end
 
 local actions = require "fzf-lua.actions"
 
+-- directories to exclude from file/grep search (dependency & build dirs)
+local ignore_dirs = {
+  "node_modules", ".venv", "venv", ".conda", "site-packages",
+  "__pycache__", ".git", "dist", "build", ".next", "target",
+  ".cache", ".mypy_cache", ".pytest_cache", ".tox", ".eggs",
+}
+
+local function rg_globs()
+  local globs = {}
+  for _, d in ipairs(ignore_dirs) do
+    table.insert(globs, string.format("-g '!**/%s/**'", d))
+  end
+  return table.concat(globs, " ")
+end
+
+local function fd_excludes()
+  local excludes = {}
+  for _, d in ipairs(ignore_dirs) do
+    table.insert(excludes, string.format("--exclude %s", d))
+  end
+  return table.concat(excludes, " ")
+end
+
+-- non-prose file types to exclude from full-text (grep) search only
+local ignore_grep_globs = {
+  "*.svg", "*.map", "*.min.js", "*.min.css",
+  "*.lock", "package-lock.json", "yarn.lock", "pnpm-lock.yaml",
+  "poetry.lock", "Pipfile.lock", "Cargo.lock", "Gemfile.lock",
+}
+
+local function grep_globs()
+  local globs = { rg_globs() }
+  for _, g in ipairs(ignore_grep_globs) do
+    table.insert(globs, string.format("-g '!%s'", g))
+  end
+  return table.concat(globs, " ")
+end
+
 fzflua.setup({
   -- fzf_bin         = 'sk',            -- use skim instead of fzf?
                                         -- https://github.com/lotabout/skim
@@ -64,7 +102,7 @@ fzflua.setup({
       flip_columns   = 120,             -- #cols to switch to horizontal on flex
       -- Only used with the builtin previewer:
       title          = true,            -- preview border title (file/buf)?
-      title_align    = "left",          -- left|center|right, title alignment
+      title_pos      = "left",          -- left|center|right, title alignment
       scrollbar      = 'float',         -- `false` or string:'float|border'
                                         -- float:  in-window floating border
                                         -- border: in-border chars (see below)
@@ -250,8 +288,8 @@ fzflua.setup({
     -- NOTE: 'find -printf' requires GNU find
     -- cmd            = "find . -type f -printf '%P\n'",
     find_opts         = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
-    rg_opts           = "--color=never --files --hidden --follow -g '!.git'",
-    fd_opts           = "--color=never --type f --hidden --follow --exclude .git",
+    rg_opts           = "--color=never --files --hidden --follow " .. rg_globs(),
+    fd_opts           = "--color=never --type f --hidden --follow " .. fd_excludes(),
     actions = {
       -- inherits from 'actions.files', here we can override
       -- or set bind to 'false' to disable a default action
@@ -364,7 +402,7 @@ fzflua.setup({
     -- default options are controlled by 'rg|grep_opts'
     -- cmd            = "rga",
     grep_opts         = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp",
-    rg_opts           = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
+    rg_opts           = "--column --line-number --no-heading --color=always --smart-case --max-columns=512 " .. grep_globs(),
     -- set to 'true' to always parse globs in both 'grep' and 'live_grep'
     -- search strings will be split using the 'glob_separator' and translated
     -- to '--iglob=' arguments, requires 'rg'
