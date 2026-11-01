@@ -21,4 +21,4 @@ require "user.lsp"
 require "user.dap"
 require "user.fzf-lua"
 require "user.clipboard-image"
-require "user.copilot"
+-- require "user.copilot" -- disabled, see plugins.lua

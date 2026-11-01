@@ -65,7 +65,7 @@ return packer.startup(function(use)
   use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
 
   -- cmp plugins
-  use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin
+  use { "hrsh7th/nvim-cmp", commit = "2ffe79f1f021def8dd1fcd81deb16f1bb0d989f3" } -- The completion plugin
   use { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" } -- buffer completions
   use { "hrsh7th/cmp-path", commit = "447c87cdd6e6d6a1d2488b1d43108bfa217f56e1" } -- path completions
   use { "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" } -- snippet completions
@@ -73,7 +73,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
   -- snippets
-  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
+  use { "L3MON4D3/LuaSnip", commit = "0abc8f390b278c3b4aabc4c004ac8a088b65cf24" } --snippet engine
   use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
   -- LSP
@@ -122,7 +122,7 @@ return packer.startup(function(use)
 
   use {'szw/vim-maximizer'}
 
-  use {'github/copilot.vim'}
+  -- use {'github/copilot.vim'} -- disabled: copilot-language-server used ~700MB per nvim session
   -- use {'benlubas/molten-nvim'}
 
   -- Automatically set up your configuration after cloning packer.nvim
